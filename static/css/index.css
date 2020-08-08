@@ -1,0 +1,31 @@
+.header-container {
+    text-align: center;
+    margin-top: 5%;
+}
+
+#header {
+    text-align: center;
+    display: inline-block;
+}
+
+.main-container {
+    text-align: center;
+    margin-top: 5%;
+}
+
+#main {
+    display: inline-block;
+    margin: 0 auto;
+}
+
+.service {
+    display: inline-block;
+}
+
+#arrow {
+    margin: auto 1em;
+}
+
+#source-playlist-url {
+    margin: 3em auto;
+}

@@ -1,0 +1,20 @@
+body {
+    margin: 0;
+    color: #fff;
+    font-family: 'Helvetica Neue', sans-serif;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-image: url("../images/austria_bridge.jpg");
+    background-position: center 75%;
+}
+
+footer {
+    position: fixed;
+    bottom: 0;
+    font-size: smaller;
+}
+
+footer #copyright {
+    margin: 1em;
+}

@@ -1,0 +1,39 @@
+#navbar {
+    padding: 1em 0;
+}
+
+#navbar #nav-logo {
+    display: inline-block;
+    margin: auto 15px auto 35px;
+}
+
+#navbar #nav-logo a {
+    text-decoration: none;
+    font-family: 'Lobster', cursive;
+    font-size: 40px;
+    color: #fff;
+    text-shadow: 0 2px 8px #000;
+}
+
+#navbar ul {
+    display: inline-block;
+    padding: 0;
+    list-style: none;
+}
+
+#navbar li {
+    display: inline-block;
+    margin: auto 10px;
+}
+
+#navbar li a {
+    text-decoration: none;
+    font-family: 'Arial Black', 'Gadget', sans-serif;
+    color: #fff;
+    text-shadow: 0 2px 8px #000;
+    letter-spacing: 1px;
+}
+
+#navbar li a:hover {
+    color: #aaa;
+}
