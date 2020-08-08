@@ -1,11 +1,24 @@
 .header-container {
     text-align: center;
-    margin-top: 5%;
+    margin-top: 4%;
 }
 
 #header {
     text-align: center;
     display: inline-block;
+}
+
+#header h1 {
+    font-family: 'Lobster', cursive;
+    font-size: 60px;
+    font-weight: normal;
+    text-shadow: 0 2px 8px #000;
+    margin: 0;
+}
+
+#header p {
+    font-weight: bold;
+    text-shadow: 0 2px 8px #000;
 }
 
 .main-container {
