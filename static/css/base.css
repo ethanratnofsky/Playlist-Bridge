@@ -14,8 +14,22 @@ footer {
     position: fixed;
     bottom: 0;
     font-size: smaller;
+    width: 100%;
+}
+
+footer p {
+    margin: 1em;
+    display: inline-block;
+}
+
+footer p a {
+    color: #777;
 }
 
 footer #copyright {
-    margin: 1em;
+    float: left;
+}
+
+footer #bg-photo-credit {
+    float: right;
 }
