@@ -1,0 +1,50 @@
+{% extends "base.html" %}
+
+{% block title %}
+Home
+{% endblock %}
+
+{% block head %}
+    <meta name="description"
+          content="Share your playlists without having to worry about gaps between music streaming services!">
+{% endblock %}
+
+{% block body %}
+    <div class="header-container">
+        <div id="header">
+            <h1>Playlist Bridge</h1>
+            <p><i>Bridge the gap between music streaming services!</i></p>
+        </div>
+    </div>
+
+    <div class="main-container">
+        <div id="main">
+            <form id="main-form">
+                <div class="service">
+                    <label for="src-service">Source Service</label>
+                    <br>
+                    <select id="src-service" name="src_service" >
+                            <option value="tidal">TIDAL</option>
+                            <option value="spotify">Spotify</option>
+                    </select>
+                </div>
+                <span id="arrow">&rarr;</span>
+                <div class="service">
+                    <label for="dest-service">Destination Service</label>
+                    <br>
+                    <select id="dest-service" name="dest_service">
+                            <option value="tidal">TIDAL</option>
+                            <option value="spotify">Spotify</option>
+                    </select>
+                </div>
+                <div id="source-playlist-url">
+                    <label for="main-form">Source Playlist URL: </label>
+                    <input type="url" placeholder="Enter Playlist URL" required>
+                </div>
+                <div>
+                    <input type="submit" name="submit" value="Bridge">
+                </div>
+            </form>
+        </div>
+    </div>
+{% endblock %}
