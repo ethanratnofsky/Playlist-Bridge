@@ -1,4 +1,4 @@
-.header-container {
+.container {
     text-align: center;
     margin-top: 4%;
 }
@@ -18,11 +18,6 @@
 
 #header p {
     font-weight: bold;
-}
-
-.main-container {
-    text-align: center;
-    margin-top: 5%;
 }
 
 #main {
