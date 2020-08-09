@@ -23,18 +23,20 @@
                 <div class="service">
                     <label for="src-service">Source Service</label>
                     <br>
-                    <select id="src-service" name="src_service" >
-                            <option value="tidal">TIDAL</option>
-                            <option value="spotify">Spotify</option>
+                    <select id="src-service" name="src_service" required>
+                        <option value="" disabled selected>-- Choose a service --</option>
+                        <option value="tidal">TIDAL</option>
+                        <option value="spotify">Spotify</option>
                     </select>
                 </div>
                 <span id="arrow">&rarr;</span>
                 <div class="service">
                     <label for="dest-service">Destination Service</label>
                     <br>
-                    <select id="dest-service" name="dest_service">
-                            <option value="tidal">TIDAL</option>
-                            <option value="spotify">Spotify</option>
+                    <select id="dest-service" name="dest_service" required>
+                        <option value="" disabled selected>-- Choose a service-- </option>
+                        <option value="tidal">TIDAL</option>
+                        <option value="spotify">Spotify</option>
                     </select>
                 </div>
                 <div id="source-playlist-url">
