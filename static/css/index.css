@@ -36,4 +36,25 @@
 
 #source-playlist-url {
     margin: 3em auto;
+    background-color: #333;
+    padding: 0.5em 1em;
+    border-radius: 15px;
+    box-shadow: 0 2px 8px #000;
+}
+
+#source-playlist-url input {
+    margin-left: 8px;
+    width: 200px;
+    border: none;
+    background: none;
+    border-bottom: 1px solid #fff;
+    padding: 5px 3px 1px 3px;
+}
+
+#source-playlist-url input::placeholder {
+    font-family: 'Open Sans', sans-serif;
+}
+
+#source-playlist-url input:focus {
+    outline: none;
 }
