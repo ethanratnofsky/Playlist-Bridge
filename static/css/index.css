@@ -55,7 +55,3 @@
 #source-playlist-url input::placeholder {
     font-family: 'Open Sans', sans-serif;
 }
-
-#source-playlist-url input:focus {
-    outline: none;
-}
