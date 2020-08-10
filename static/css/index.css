@@ -40,6 +40,7 @@
     padding: 0.5em 1em;
     border-radius: 15px;
     box-shadow: 0 2px 8px #000;
+    border: 1px solid #222;
 }
 
 #source-playlist-url input {
