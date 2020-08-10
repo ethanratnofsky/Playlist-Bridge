@@ -29,6 +29,10 @@
     display: inline-block;
 }
 
+.service select {
+    box-shadow: 0 2px 8px #000;
+}
+
 #arrow {
     margin: auto 1em;
     font-size: 40px;
@@ -54,4 +58,27 @@
 
 #source-playlist-url input::placeholder {
     font-family: 'Open Sans', sans-serif;
+}
+
+#bridge-button {
+    box-shadow: 0 2px 8px #000;
+    text-shadow: 0 1px 1px #000;
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 600;
+    font-size: 15px;
+    padding: 7px 20px;
+    border-radius: 20px;
+    border: 1px solid #118529;
+    background: #89c403 linear-gradient(to bottom, #89c403 5%, #77a809 100%);
+    color: #fff;
+}
+
+#bridge-button:hover {
+    background: #77a809 linear-gradient(to bottom, #77a809 5%, #89c403 100%);
+}
+
+#bridge-button:active {
+    position: relative;
+	top: 1px;
+    outline: none;
 }
