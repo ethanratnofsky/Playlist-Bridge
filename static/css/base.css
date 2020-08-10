@@ -2,6 +2,7 @@ body {
     margin: 0;
     color: #fff;
     font-family: 'Open Sans', sans-serif;
+    font-weight: 400;
     text-shadow: 0 2px 8px #000;
 
     background-attachment: fixed;
@@ -15,6 +16,7 @@ footer {
     position: fixed;
     bottom: 0;
     font-size: smaller;
+    font-weight: 300;
     width: 100%;
 }
 
