@@ -69,12 +69,12 @@
     padding: 7px 20px;
     border-radius: 20px;
     border: 1px solid #118529;
-    background: #89c403 linear-gradient(to bottom, #89c403 5%, #77a809 100%);
+    background: #6bc403 linear-gradient(to bottom, #6bc403 5%, #59a809 100%);
     color: #fff;
 }
 
 #bridge-button:hover {
-    background: #77a809 linear-gradient(to bottom, #77a809 5%, #89c403 100%);
+    background: #59a809 linear-gradient(to bottom, #59a809 5%, #6bc403 100%);
 }
 
 #bridge-button:active {
