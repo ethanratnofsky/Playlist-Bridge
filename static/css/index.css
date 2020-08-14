@@ -29,14 +29,6 @@
     font-size: 40px;
 }
 
-#sourcePlaylistUrl {
-    margin: 3em auto;
-    background-color: #333;
-    padding: 0.7em 1em;
-    border-radius: 10px;
-    text-shadow: none;
-}
-
 #sourcePlaylistUrl input {
     margin-left: 8px;
     width: 200px;
