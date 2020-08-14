@@ -1,10 +1,10 @@
-.container {
+.mainContainer {
     text-align: center;
     margin-top: 4%;
 }
 
-.shadow {
-    box-shadow: 0 2px 5px #000;
+.service {
+    display: inline-block;
 }
 
 #header {
@@ -16,12 +16,7 @@
     font-family: 'Lobster', cursive;
     font-size: 60px;
     font-weight: normal;
-    text-shadow: 0 2px 5px #000;
     margin: 0;
-}
-
-#header p {
-    font-weight: bold;
 }
 
 #main {
@@ -29,20 +24,12 @@
     margin: 0 auto;
 }
 
-.service {
-    display: inline-block;
-}
-
-.service select {
-    box-shadow: 0 2px 5px #000;
-}
-
 #arrow {
     margin: auto 1em;
     font-size: 40px;
 }
 
-#source-playlist-url {
+#sourcePlaylistUrl {
     margin: 3em auto;
     background-color: #333;
     padding: 0.7em 1em;
@@ -51,7 +38,7 @@
     text-shadow: none;
 }
 
-#source-playlist-url input {
+#sourcePlaylistUrl input {
     margin-left: 8px;
     width: 200px;
     border: none;
@@ -60,11 +47,11 @@
     padding: 5px 3px 1px 3px;
 }
 
-#source-playlist-url input::placeholder {
+#sourcePlaylistUrl input::placeholder {
     font-family: 'Open Sans', sans-serif;
 }
 
-#bridge-button {
+#bridgeButton {
     box-shadow: 0 2px 5px #000;
     font-family: 'Open Sans', sans-serif;
     font-weight: 600;
@@ -72,15 +59,15 @@
     padding: 7px 20px;
     border-radius: 10px;
     border: none;
-    background: #6bc403;
+    background: #21ba45;
     color: #fff;
 }
 
-#bridge-button:hover {
-    background: #59a809;
+#bridgeButton:hover {
+    background: #1c993a;
 }
 
-#bridge-button:active {
+#bridgeButton:active {
     position: relative;
 	top: 1px;
     outline: none;
