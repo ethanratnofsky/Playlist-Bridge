@@ -1,13 +1,13 @@
-#navbar {
+#navBar {
     padding: 1em 0;
 }
 
-#navbar #nav-logo {
+#navBar #navLogo {
     display: inline-block;
     margin: auto 15px auto 35px;
 }
 
-#navbar #nav-logo a {
+#navBar #navLogo a {
     text-decoration: none;
     font-family: 'Lobster', cursive;
     font-size: 40px;
@@ -15,25 +15,25 @@
     color: #fff;
 }
 
-#navbar ul {
+#navBar ul {
     display: inline-block;
     padding: 0;
     list-style: none;
     position: fixed;
 }
 
-#navbar li {
+#navBar li {
     display: inline-block;
     margin: auto 10px;
 }
 
-#navbar li a {
+#navBar li a {
     text-decoration: none;
     font-family: 'Arial Black', 'Gadget', sans-serif;
     color: #fff;
     letter-spacing: 1px;
 }
 
-#navbar li a:hover {
+#navBar li a:hover {
     color: #999;
 }
