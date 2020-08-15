@@ -25,11 +25,7 @@
 }
 
 .service > img {
-    margin: 0.5em auto;
-}
-
-.service > select {
-    margin-top: 0.75em;
+    margin: 1em auto;
 }
 
 #sourcePlaylistUrl {
