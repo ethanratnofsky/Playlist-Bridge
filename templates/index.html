@@ -18,35 +18,34 @@
     </div>
 
     <div class="mainContainer">
-        <div id="main">
-            <form name="main_form">
-                <div class="contentBox boxShadow service">
-                    <label for="srcService">Source Service</label>
-                    <br>
-                    <select id="srcService" name="src_service" required>
-                        <option value="" disabled selected></option>
-                        <option value="tidal">TIDAL</option>
-                        <option value="spotify">Spotify</option>
-                    </select>
-                </div>
-                <span id="arrow">&rarr;</span>
-                <div class="contentBox boxShadow service">
-                    <label for="destService">Destination Service</label>
-                    <br>
-                    <select id="destService" name="dest_service" required>
-                        <option value="" disabled selected></option>
-                        <option value="tidal">TIDAL</option>
-                        <option value="spotify">Spotify</option>
-                    </select>
-                </div>
-                <div class="contentBox boxShadow" id="sourcePlaylistUrl">
-                    <label for="srcUrl">Source Playlist URL: </label>
-                    <input id="srcUrl" name="src_service_url" type="url" placeholder="Enter Playlist URL" required>
-                </div>
-                <div>
-                    <input id="bridgeButton" type="submit" name="submit" value="Bridge">
-                </div>
-            </form>
-        </div>
+        <form name="main_form">
+            <div class="contentBox boxShadow service">
+                <label for="srcService">Source Service</label>
+                <br>
+                <select id="srcService" name="src_service" required>
+                    <option value="" disabled selected></option>
+                    <option value="tidal">TIDAL</option>
+                    <option value="spotify">Spotify</option>
+                </select>
+            </div>
+            <span id="arrow">&rarr;</span>
+            <div class="contentBox boxShadow service">
+                <label for="destService">Destination Service</label>
+                <br>
+                <select id="destService" name="dest_service" required>
+                    <option value="" disabled selected></option>
+                    <option value="tidal">TIDAL</option>
+                    <option value="spotify">Spotify</option>
+                </select>
+            </div>
+            <br>
+            <div class="contentBox boxShadow" id="sourcePlaylistUrl">
+                <label for="srcUrl">Source Playlist URL: </label>
+                <input id="srcUrl" name="src_service_url" type="url" placeholder="Enter Playlist URL" required>
+            </div>
+            <div>
+                <input id="bridgeButton" type="submit" name="submit" value="Bridge">
+            </div>
+        </form>
     </div>
 {% endblock %}

@@ -19,14 +19,13 @@
     margin: 0;
 }
 
-#main {
-    display: inline-block;
-    margin: 0 auto;
-}
-
 #arrow {
     margin: auto 1em;
     font-size: 40px;
+}
+
+#sourcePlaylistUrl {
+    display: inline-block;
 }
 
 #sourcePlaylistUrl input {
