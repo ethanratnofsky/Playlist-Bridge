@@ -1,5 +1,6 @@
 #header {
     text-align: center;
+    padding: 1em 0;
 }
 
 #header h1 {
@@ -11,7 +12,6 @@
 
 #main {
     text-align: center;
-    margin-top: 3%;
 }
 
 #arrow {
@@ -46,7 +46,8 @@
     font-weight: 600;
     font-size: 15px;
     padding: 7px 20px;
-    border-radius: 10px;
+    margin: 1em auto;
+    border-radius: 7px;
     border: none;
     background: #21ba45;
     color: #fff;
