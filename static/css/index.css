@@ -1,15 +1,5 @@
-.mainContainer {
-    text-align: center;
-    margin-top: 3%;
-}
-
-.service {
-    display: inline-block;
-}
-
 #header {
     text-align: center;
-    display: inline-block;
 }
 
 #header h1 {
@@ -19,9 +9,18 @@
     margin: 0;
 }
 
+#main {
+    text-align: center;
+    margin-top: 3%;
+}
+
 #arrow {
     margin: auto 1em;
     font-size: 40px;
+}
+
+.service {
+    display: inline-block;
 }
 
 #sourcePlaylistUrl {
