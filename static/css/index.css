@@ -21,6 +21,11 @@
 
 .service {
     display: inline-block;
+    width: 175px;
+}
+
+.service > img {
+    margin: 0.5em auto;
 }
 
 #sourcePlaylistUrl {

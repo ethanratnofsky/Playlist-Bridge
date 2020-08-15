@@ -6,6 +6,14 @@
     text-shadow: 0 2px 5px #000;
 }
 
+.dropShadow:not(inverted) {
+    filter: drop-shadow(0 2px 5px #000);
+}
+
+.dropShadow.inverted {
+    filter: drop-shadow(0 2px 5px #fff)
+}
+
 .contentBox {
     margin: 1em;
     background-color: #333;
