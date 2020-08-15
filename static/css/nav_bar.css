@@ -1,10 +1,10 @@
 #navBar {
-    padding: 1em 0;
+    padding: 1em 2em;
 }
 
 #navBar #navLogo {
     display: inline-block;
-    margin: auto 15px auto 35px;
+    margin: auto 15px;
 }
 
 #navBar #navLogo a {
@@ -20,6 +20,7 @@
     padding: 0;
     list-style: none;
     position: fixed;
+    margin-left: 1em;
 }
 
 #navBar li {
