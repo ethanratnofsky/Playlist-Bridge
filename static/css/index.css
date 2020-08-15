@@ -28,6 +28,10 @@
     margin: 0.5em auto;
 }
 
+.service > select {
+    margin-top: 0.75em;
+}
+
 #sourcePlaylistUrl {
     display: inline-block;
 }
@@ -54,12 +58,12 @@
     margin: 1em auto;
     border-radius: 7px;
     border: none;
-    background: #21ba45;
+    background: #258af6; /* 21ba45 */
     color: #fff;
 }
 
 #bridgeButton:hover {
-    background: #1c993a;
+    background: #2382e7;
 }
 
 #bridgeButton:active {
