@@ -1,17 +1,22 @@
+:root {
+    --shadow-color: #000;
+    --shadow-color-inverted: #fff;
+}
+
 .boxShadow {
-    box-shadow: 0 2px 5px #000;
+    box-shadow: 0 2px 5px var(--shadow-color, #000);
 }
 
 .textShadow {
-    text-shadow: 0 2px 5px #000;
+    text-shadow: 0 2px 5px var(--shadow-color, #000);
 }
 
 .dropShadow:not(inverted) {
-    filter: drop-shadow(0 2px 5px #000);
+    filter: drop-shadow(0 2px 5px var(--shadow-color, #000));
 }
 
 .dropShadow.inverted {
-    filter: drop-shadow(0 2px 5px #fff)
+    filter: drop-shadow(0 2px 5px var(--shadow-color-inverted, #fff))
 }
 
 .contentBox {
