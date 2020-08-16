@@ -1,7 +1,4 @@
-:root {
-    --shadow-color: #000;
-    --shadow-color-inverted: #fff;
-}
+@import "colors.css";
 
 .boxShadow {
     box-shadow: 0 2px 5px var(--shadow-color);
