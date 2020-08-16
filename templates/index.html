@@ -16,13 +16,13 @@
     </div>
 
     <div id="main">
-        <form name="main_form">
+        <form>
             <div class="contentBox boxShadow service">
                 <label for="srcService">Source Service</label>
                 <br>
                 <img class="dropShadow" id="srcServiceIcon" src="/static/images/question_mark.svg" alt="No Service Selected">
                 <br>
-                <select id="srcService" name="src_service" required>
+                <select id="srcService" required>
                     <option data-img-src="/static/images/question_mark.svg" data-img-alt="No Service Selected" value="" selected></option>
                     <option data-img-src="/static/images/tidal_icon.svg" data-img-alt="TIDAL Icon" value="tidal">TIDAL</option>
                     <option data-img-src="/static/images/spotify_icon.svg" data-img-alt="Spotify Icon" value="spotify">Spotify</option>
@@ -35,7 +35,7 @@
                 <br>
                 <img class="dropShadow" id="destServiceIcon" src="/static/images/question_mark.svg" alt="No Service Selected">
                 <br>
-                <select id="destService" name="dest_service" required>
+                <select id="destService" required>
                     <option data-img-src="/static/images/question_mark.svg" data-img-alt="No Service Selected" value="" selected></option>
                     <option data-img-src="/static/images/tidal_icon.svg" data-img-alt="TIDAL Icon" value="tidal">TIDAL</option>
                     <option data-img-src="/static/images/spotify_icon.svg" data-img-alt="Spotify Icon" value="spotify">Spotify</option>
@@ -45,10 +45,10 @@
             <br>
             <div class="contentBox boxShadow" id="sourcePlaylistUrl">
                 <label for="srcUrl">Source Playlist URL: </label>
-                <input id="srcUrl" name="src_service_url" type="url" placeholder="Enter Playlist URL" required>
+                <input id="srcUrl" type="url" placeholder="Enter Playlist URL" required>
             </div>
             <div>
-                <input class="button" id="bridgeButton" type="submit" name="submit" value="Bridge">
+                <input class="button" id="bridgeButton" type="submit" value="Bridge">
             </div>
         </form>
     </div>
