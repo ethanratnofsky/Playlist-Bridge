@@ -1,4 +1,9 @@
 :root {
+    --primary-color: #333;
+    --secondary-color: #fff;
+    --tertiary-color: #258af6;
+    --tertiary-darker: #2382e7;
+
     --shadow-color: #000;
     --shadow-color-inverted: #fff;
 }

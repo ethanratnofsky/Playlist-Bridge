@@ -16,7 +16,7 @@
 
 .contentBox {
     margin: 1em;
-    background-color: #333;
+    background-color: var(--primary-color);
     padding: 1em;
     border-radius: 7px;
     text-shadow: none;
