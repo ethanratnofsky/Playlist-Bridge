@@ -28,7 +28,7 @@ footer p {
 }
 
 footer p a {
-    color: var(--primary-color);
+    color: var(--secondary-color);
 }
 
 footer #copyright {
