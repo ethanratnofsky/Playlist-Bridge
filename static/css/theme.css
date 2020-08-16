@@ -1,17 +1,17 @@
 .boxShadow {
-    box-shadow: 0 0px 5px var(--shadow-color);
+    box-shadow: 0 0 5px var(--shadow-color);
 }
 
 .textShadow {
-    text-shadow: 0 2px 5px var(--shadow-color);
+    text-shadow: 0 0 5px var(--shadow-color);
 }
 
 .dropShadow:not(inverted) {
-    filter: drop-shadow(0 2px 2px var(--shadow-color));
+    filter: drop-shadow(0 0 2px var(--shadow-color));
 }
 
 .dropShadow.inverted {
-    filter: drop-shadow(0 2px 2px var(--shadow-color-inverted))
+    filter: drop-shadow(0 0 2px var(--shadow-color-inverted))
 }
 
 .contentBox {
@@ -35,7 +35,6 @@
 }
 
 .button {
-    box-shadow: 0 2px 5px var(--shadow-color);
     font-family: 'Open Sans', sans-serif;
     font-weight: 600;
     font-size: 15px;
