@@ -1,5 +1,5 @@
 .boxShadow {
-    box-shadow: 0 2px 5px var(--shadow-color);
+    box-shadow: 0 0px 5px var(--shadow-color);
 }
 
 .textShadow {
@@ -20,6 +20,18 @@
     padding: 1em;
     border-radius: 7px;
     text-shadow: none;
+}
+
+.dropDownMenu {
+    padding: 1px 5px;
+
+    border-radius: 5px;
+
+    font-size: 15px;
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 600;
+
+    cursor: pointer;
 }
 
 .button {
