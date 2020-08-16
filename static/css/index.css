@@ -33,13 +33,13 @@
 }
 
 #sourcePlaylistUrl input {
-    width: 200px;
+    width: 250px;
 
     margin-left: 8px;
-    padding: 5px 3px 1px 3px;
+    padding: 5px 5px 2px 5px;
 
     border: none;
-    border-bottom: 1px solid var(--secondary-color);
+    border-bottom: 2px dotted var(--secondary-color);
     background: none;
 
     color: var(--secondary-color);
@@ -49,4 +49,9 @@
 
 #sourcePlaylistUrl input::placeholder {
     font-family: 'Open Sans', sans-serif;
+}
+
+#sourcePlaylistUrl input:focus {
+    outline: none;
+    border-bottom-color: var(--tertiary-color);
 }
