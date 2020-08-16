@@ -26,6 +26,7 @@
 
 .service > img {
     margin: 1em auto;
+    width: 50px;
 }
 
 #sourcePlaylistUrl {
