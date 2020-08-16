@@ -23,10 +23,10 @@
                 <img class="dropShadow" id="srcServiceIcon" src="/static/images/question_mark.svg" alt="No Service Selected">
                 <br>
                 <select id="srcService" name="src_service" required>
-                    <option value="" disabled selected></option>
-                    <option value="tidal">TIDAL</option>
-                    <option value="spotify">Spotify</option>
-                    <option value="apple_music">Apple Music</option>
+                    <option data-img-src="/static/images/question_mark.svg" data-img-alt="No Service Selected" value="" selected></option>
+                    <option data-img-src="/static/images/tidal_icon.svg" data-img-alt="TIDAL Icon" value="tidal">TIDAL</option>
+                    <option data-img-src="/static/images/spotify_icon.svg" data-img-alt="Spotify Icon" value="spotify">Spotify</option>
+                    <option data-img-src="/static/images/itunes_icon.svg" data-img-alt="Apple Music Icon" value="apple_music">Apple Music</option>
                 </select>
             </div>
             <span id="arrow">&rarr;</span>
@@ -36,10 +36,10 @@
                 <img class="dropShadow" id="destServiceIcon" src="/static/images/question_mark.svg" alt="No Service Selected">
                 <br>
                 <select id="destService" name="dest_service" required>
-                    <option value="" disabled selected></option>
-                    <option value="tidal">TIDAL</option>
-                    <option value="spotify">Spotify</option>
-                    <option value="apple_music">Apple Music</option>
+                    <option data-img-src="/static/images/question_mark.svg" data-img-alt="No Service Selected" value="" selected></option>
+                    <option data-img-src="/static/images/tidal_icon.svg" data-img-alt="TIDAL Icon" value="tidal">TIDAL</option>
+                    <option data-img-src="/static/images/spotify_icon.svg" data-img-alt="Spotify Icon" value="spotify">Spotify</option>
+                    <option data-img-src="/static/images/itunes_icon.svg" data-img-alt="Apple Music Icon" value="apple_music">Apple Music</option>
                 </select>
             </div>
             <br>
@@ -52,4 +52,8 @@
             </div>
         </form>
     </div>
+{% endblock %}
+
+{% block scripts %}
+    <script src="/static/js/index.js"></script>
 {% endblock %}
