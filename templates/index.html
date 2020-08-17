@@ -17,32 +17,33 @@
 
     <div id="main">
         <form>
-            <div class="contentBox boxShadow service">
-                <label for="srcService">Source Service</label>
-                <br>
-                <img class="dropShadow" id="srcServiceIcon" src="/static/images/question_mark.svg" alt="No Service Selected">
-                <br>
-                <select class="dropDownMenu" id="srcService" required>
-                    <option data-img-src="/static/images/question_mark.svg" data-img-alt="No Service Selected" value="" selected></option>
-                    <option data-img-src="/static/images/tidal_icon.svg" data-img-alt="TIDAL Icon" value="tidal">TIDAL</option>
-                    <option data-img-src="/static/images/spotify_icon.svg" data-img-alt="Spotify Icon" value="spotify">Spotify</option>
-                    <option data-img-src="/static/images/itunes_icon.svg" data-img-alt="Apple Music Icon" value="apple_music">Apple Music</option>
-                </select>
+            <div id="servicesContainer">
+                <div class="contentBox boxShadow service">
+                    <label for="srcService">Source Service</label>
+                    <br>
+                    <img class="dropShadow" id="srcServiceIcon" src="/static/images/question_mark.svg" alt="No Service Selected">
+                    <br>
+                    <select class="dropDownMenu" id="srcService" required>
+                        <option data-img-src="/static/images/question_mark.svg" data-img-alt="No Service Selected" value="" selected></option>
+                        <option data-img-src="/static/images/tidal_icon.svg" data-img-alt="TIDAL Icon" value="tidal">TIDAL</option>
+                        <option data-img-src="/static/images/spotify_icon.svg" data-img-alt="Spotify Icon" value="spotify">Spotify</option>
+                        <option data-img-src="/static/images/itunes_icon.svg" data-img-alt="Apple Music Icon" value="apple_music">Apple Music</option>
+                    </select>
+                </div>
+                <img class="dropShadow" id="arrow" src="/static/images/arrow_icon.svg">
+                <div class="contentBox boxShadow service">
+                    <label for="destService">Destination Service</label>
+                    <br>
+                    <img class="dropShadow" id="destServiceIcon" src="/static/images/question_mark.svg" alt="No Service Selected">
+                    <br>
+                    <select class="dropDownMenu" id="destService" required>
+                        <option data-img-src="/static/images/question_mark.svg" data-img-alt="No Service Selected" value="" selected></option>
+                        <option data-img-src="/static/images/tidal_icon.svg" data-img-alt="TIDAL Icon" value="tidal">TIDAL</option>
+                        <option data-img-src="/static/images/spotify_icon.svg" data-img-alt="Spotify Icon" value="spotify">Spotify</option>
+                        <option data-img-src="/static/images/itunes_icon.svg" data-img-alt="Apple Music Icon" value="apple_music">Apple Music</option>
+                    </select>
+                </div>
             </div>
-            <span id="arrow">&rarr;</span>
-            <div class="contentBox boxShadow service">
-                <label for="destService">Destination Service</label>
-                <br>
-                <img class="dropShadow" id="destServiceIcon" src="/static/images/question_mark.svg" alt="No Service Selected">
-                <br>
-                <select class="dropDownMenu" id="destService" required>
-                    <option data-img-src="/static/images/question_mark.svg" data-img-alt="No Service Selected" value="" selected></option>
-                    <option data-img-src="/static/images/tidal_icon.svg" data-img-alt="TIDAL Icon" value="tidal">TIDAL</option>
-                    <option data-img-src="/static/images/spotify_icon.svg" data-img-alt="Spotify Icon" value="spotify">Spotify</option>
-                    <option data-img-src="/static/images/itunes_icon.svg" data-img-alt="Apple Music Icon" value="apple_music">Apple Music</option>
-                </select>
-            </div>
-            <br>
             <div class="contentBox boxShadow" id="sourcePlaylistUrl">
                 <label for="srcUrl">Source Playlist URL: </label>
                 <input id="srcUrl" type="url" placeholder="Enter Playlist URL" required>

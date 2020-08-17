@@ -1,3 +1,13 @@
+.service {
+    display: inline-block;
+    width: 175px;
+}
+
+.service > img {
+    margin: 1em auto;
+    width: 75px;
+}
+
 #header {
     text-align: center;
     padding: 1em 0;
@@ -14,19 +24,16 @@
     text-align: center;
 }
 
+#servicesContainer {
+    position: relative;
+}
+
 #arrow {
-    margin: auto 1em;
-    font-size: 40px;
-}
+    margin: auto 2em;
 
-.service {
-    display: inline-block;
-    width: 175px;
-}
-
-.service > img {
-    margin: 1em auto;
-    width: 75px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 70px;
 }
 
 #sourcePlaylistUrl {
