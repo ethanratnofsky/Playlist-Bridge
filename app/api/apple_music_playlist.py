@@ -13,7 +13,10 @@ class AppleMusicPlaylistParser:
 
     Methods
     -------
-
+    get_storefront()
+        Parses the playlist URL to determine the storefront
+    get_playlist_id()
+        Parses the playlist URL to determine the playlist ID
     """
     def __init__(self, url):
         """
