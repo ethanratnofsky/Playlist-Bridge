@@ -1,5 +1,6 @@
 import requests
 
+
 class AppleMusicPlaylistParser:
     """
     A class used to parse a playlist URL from Apple Music
@@ -56,6 +57,7 @@ class AppleMusicPlaylistParser:
         storefront : str
             A two-character string that represents the storefront
         """
+
         url = self.playlist_url
         return url[url.find("apple.com/") + 10:url.find("/playlist")]
 
@@ -69,5 +71,6 @@ class AppleMusicPlaylistParser:
         playlist_id : str
             The playlist ID
         """
+
         url = self.playlist_url
         return url[url.rfind("/") + 1:]
