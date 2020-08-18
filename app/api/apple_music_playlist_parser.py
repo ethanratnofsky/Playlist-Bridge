@@ -35,6 +35,7 @@ class AppleMusicPlaylistParser:
         self.storefront = self.get_storefront()
         self.playlist_id = self.get_playlist_id()
         self.raw_playlist = self.get_raw_playlist()
+        # TODO: parse raw playlist response
 
     def get_storefront(self):
         """Parses the playlist URL to determine the storefront.
@@ -75,6 +76,8 @@ class AppleMusicPlaylistParser:
             A dict that represents the raw Playlist object
         """
 
+        # TODO: need necessary authentication to access Apple Music API
+        # TODO: load endpoint from env/config/settings file
         response = requests.get("https://api.music.apple.com/v1/catalog/{storefront}/playlists/{id}"
                                 .format(storefront=self.storefront, id=self.playlist_id))
         return response.json()
