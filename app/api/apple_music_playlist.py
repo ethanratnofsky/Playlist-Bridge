@@ -6,13 +6,13 @@ class AppleMusicPlaylist:
         self.playlist_url = url
         self.storefront = self.get_storefront()
         self.playlist_id = self.get_playlist_id()
-        self.playlist = {
-            "title": self.get_playlist_title(),
-            "description": self.get_playlist_desc(),
-            "curator": self.get_playlist_curator(),
-            "date": self.get_playlist_date(),
-            "songs": self.get_playlist_songs()
-        }
+        # self.playlist = {
+        #     "title": self.get_playlist_title(),
+        #     "description": self.get_playlist_desc(),
+        #     "curator": self.get_playlist_curator(),
+        #     "date": self.get_playlist_date(),
+        #     "songs": self.get_playlist_songs()
+        # }
 
     def get_storefront(self):
         url = self.playlist_url
