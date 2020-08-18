@@ -1,4 +1,4 @@
-from app.api.apple_music_playlist import AppleMusicPlaylistParser
+from app.api.apple_music_playlist_parser import AppleMusicPlaylistParser
 from tests.constant_playlist_urls import *
 
 url = AppleMusicPlaylistParser(APPLE_MUSIC_PLAYLIST_URL_1)
