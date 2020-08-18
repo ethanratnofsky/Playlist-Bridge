@@ -13,7 +13,9 @@ class AppleMusicPlaylistParser:
     playlist_id : str
         The Apple Music Playlist ID for the playlist
     api_endpoint : str
-        The Apple Music API Endpoint for the playlist
+        The Apple Music API endpoint for the playlist
+    raw_response : Response
+        Response object returned by API endpoint GET request
 
     Methods
     -------
@@ -35,6 +37,7 @@ class AppleMusicPlaylistParser:
         self.playlist_id = self.get_playlist_id()
         self.api_endpoint = "https://api.music.apple.com/v1/catalog/{storefront}/playlists/{id}"\
             .format(storefront=self.storefront, id=self.playlist_id)
+        self.raw_response = requests.get(self.api_endpoint)
         # self.playlist = {
         #     "title": self.get_playlist_title(),
         #     "description": self.get_playlist_desc(),
