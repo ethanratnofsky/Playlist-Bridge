@@ -1,6 +1,13 @@
 class Song:
-    def __init(self):
-        self.name = ""
-        self.artist = ""
-        self.album = ""
-        self.isrc = None
+    """
+    A class used to represent a Song
+
+    ...
+
+    Attributes
+    """
+    def __init(self, name, artist, album, isrc):
+        self.name = name
+        self.artist = artist
+        self.album = album
+        self.isrc = isrc
