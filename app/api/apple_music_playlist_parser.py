@@ -13,8 +13,8 @@ class AppleMusicPlaylistParser:
         The Apple Music Storefront for the playlist
     playlist_id : str
         The Apple Music Playlist ID for the playlist
-    api_endpoint : str
-        The Apple Music API endpoint for the playlist
+    raw_playlist : dict
+        Decoded JSON from API response that represents the playlist
 
     Methods
     -------
@@ -34,15 +34,7 @@ class AppleMusicPlaylistParser:
         self.playlist_url = url
         self.storefront = self.get_storefront()
         self.playlist_id = self.get_playlist_id()
-        self.api_endpoint = "https://api.music.apple.com/v1/catalog/{storefront}/playlists/{id}"\
-            .format(storefront=self.storefront, id=self.playlist_id)
-        # self.playlist = {
-        #     "title": self.get_playlist_title(),
-        #     "description": self.get_playlist_desc(),
-        #     "curator": self.get_playlist_curator(),
-        #     "date": self.get_playlist_date(),
-        #     "songs": self.get_playlist_songs()
-        # }
+        self.raw_playlist = self.get_raw_playlist()
 
     def get_storefront(self):
         """Parses the playlist URL to determine the storefront.
@@ -71,3 +63,18 @@ class AppleMusicPlaylistParser:
 
         url = self.playlist_url
         return url[url.rfind("/") + 1:]
+
+    def get_raw_playlist(self):
+        """Accesses API endpoint to retrieve and decode Playlist JSON response
+
+        The raw playlist JSON response is necessary for parsing.
+
+        Returns
+        -------
+        raw_playlist : dict
+            A dict that represents the raw Playlist object
+        """
+
+        response = requests.get("https://api.music.apple.com/v1/catalog/{storefront}/playlists/{id}"
+                                .format(storefront=self.storefront, id=self.playlist_id))
+        return response.json()
