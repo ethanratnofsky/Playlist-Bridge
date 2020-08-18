@@ -1,3 +1,5 @@
+import requests
+
 class AppleMusicPlaylistParser:
     """
     A class used to parse a playlist URL from Apple Music
@@ -10,6 +12,8 @@ class AppleMusicPlaylistParser:
         The Apple Music Storefront for the playlist
     playlist_id : str
         The Apple Music Playlist ID for the playlist
+    api_endpoint : str
+        The Apple Music API Endpoint for the playlist
 
     Methods
     -------
@@ -18,6 +22,7 @@ class AppleMusicPlaylistParser:
     get_playlist_id()
         Parses the playlist URL to determine the playlist ID
     """
+
     def __init__(self, url):
         """
         Parameters
@@ -28,6 +33,8 @@ class AppleMusicPlaylistParser:
         self.playlist_url = url
         self.storefront = self.get_storefront()
         self.playlist_id = self.get_playlist_id()
+        self.api_endpoint = "https://api.music.apple.com/v1/catalog/{storefront}/playlists/{id}"\
+            .format(storefront=self.storefront, id=self.playlist_id)
         # self.playlist = {
         #     "title": self.get_playlist_title(),
         #     "description": self.get_playlist_desc(),
