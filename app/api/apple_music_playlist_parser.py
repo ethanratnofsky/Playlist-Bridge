@@ -1,6 +1,6 @@
 import datetime
-import requests
 
+import requests
 # TODO: why are these imports underlined in red?
 from playlist import Playlist
 from song import Song
@@ -110,7 +110,8 @@ class AppleMusicPlaylistParser:
         parsed_playlist.title = raw_playlist["data"][0]["attributes"]["name"]
         parsed_playlist.description = raw_playlist["data"][0]["attributes"]["description"]["standard"]
         parsed_playlist.curator = raw_playlist["data"][0]["attributes"]["curatorName"]
-        parsed_playlist.date_modified = datetime.date.fromisoformat(raw_playlist["data"][0]["attributes"]["lastModifiedDate"][:10])
+        parsed_playlist.date_modified = datetime.date.fromisoformat(
+            raw_playlist["data"][0]["attributes"]["lastModifiedDate"][:10])
 
         raw_song_list = raw_playlist["data"][0]["relationships"]["tracks"]["data"]
         for raw_song in raw_song_list:
