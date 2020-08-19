@@ -1,4 +1,9 @@
+import datetime
 import requests
+
+# TODO: why are these imports underlined in red?
+from playlist import Playlist
+from song import Song
 
 
 class AppleMusicPlaylistParser:
@@ -14,7 +19,9 @@ class AppleMusicPlaylistParser:
     playlist_id : str
         The Apple Music Playlist ID for the playlist
     raw_playlist : dict
-        Decoded JSON from API response that represents the playlist
+        Decoded JSON directly from API response that represents the playlist
+    playlist : Playlist
+        Parsed playlist from raw_playlist
 
     Methods
     -------
@@ -22,6 +29,10 @@ class AppleMusicPlaylistParser:
         Parses the playlist URL to determine the storefront
     get_playlist_id()
         Parses the playlist URL to determine the playlist ID
+    get_raw_playlist()
+        Accesses API endpoint to retrieve and decode Playlist JSON response
+    parse_playlist()
+        Parses raw playlist dict from API response
     """
 
     def __init__(self, url):
@@ -35,14 +46,7 @@ class AppleMusicPlaylistParser:
         self.storefront = self.get_storefront()
         self.playlist_id = self.get_playlist_id()
         self.raw_playlist = self.get_raw_playlist()
-        # TODO: parse raw playlist response
-        self.playlist = {
-            "title": "Untitled Playlist",
-            "description": "",
-            "curator": "",
-            "date_modified": None,
-            "songs": []
-        }
+        self.playlist = self.parse_playlist()
 
     def get_storefront(self):
         """Parses the playlist URL to determine the storefront.
@@ -73,7 +77,7 @@ class AppleMusicPlaylistParser:
         return url[url.rfind("/") + 1:]
 
     def get_raw_playlist(self):
-        """Accesses API endpoint to retrieve and decode Playlist JSON response
+        """Accesses API endpoint to retrieve and decode Playlist JSON response.
 
         The raw playlist JSON response is necessary for parsing.
 
@@ -84,7 +88,38 @@ class AppleMusicPlaylistParser:
         """
 
         # TODO: need necessary authentication to access Apple Music API
-        # TODO: load endpoint from env/config/settings file
+        # TODO: load endpoint from env/config/settings file?
         response = requests.get("https://api.music.apple.com/v1/catalog/{storefront}/playlists/{id}"
                                 .format(storefront=self.storefront, id=self.playlist_id))
         return response.json()
+
+    def parse_playlist(self):
+        """Parses raw playlist dict from API response.
+
+        Parsing the raw playlist to a standard object allows for easier access to necessary attributes.
+
+        Returns
+        -------
+        playlist : Playlist
+            A Playlist object that represents the parsed playlist
+        """
+
+        raw_playlist = self.raw_playlist
+
+        playlist = Playlist()
+        playlist.title = raw_playlist["data"][0]["attributes"]["name"]
+        playlist.description = raw_playlist["data"][0]["attributes"]["description"]["standard"]
+        playlist.curator = raw_playlist["data"][0]["attributes"]["curatorName"]
+        playlist.date_modified = datetime.date.fromisoformat(raw_playlist["data"][0]["attributes"]["lastModifiedDate"][:10])
+
+        raw_song_list = raw_playlist["data"][0]["relationships"]["tracks"]["data"]
+        for raw_song in raw_song_list:
+            song = Song()
+            song.name = raw_song["attributes"]["name"]
+            song.artist = raw_song["attributes"]["artistName"]
+            # TODO: define song.album
+            song.isrc = raw_song["attributes"]["isrc"]
+
+            playlist.songs.append(song)
+
+        return playlist
