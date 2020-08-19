@@ -36,6 +36,13 @@ class AppleMusicPlaylistParser:
         self.playlist_id = self.get_playlist_id()
         self.raw_playlist = self.get_raw_playlist()
         # TODO: parse raw playlist response
+        self.playlist = {
+            "title": "Untitled Playlist",
+            "description": "",
+            "curator": "",
+            "date_modified": None,
+            "songs": []
+        }
 
     def get_storefront(self):
         """Parses the playlist URL to determine the storefront.
