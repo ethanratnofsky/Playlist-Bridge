@@ -20,7 +20,7 @@ class AppleMusicPlaylistParser:
         The Apple Music Playlist ID for the playlist
     raw_playlist : dict
         Decoded JSON directly from API response that represents the playlist
-    playlist : Playlist
+    parsed_playlist : Playlist
         Parsed playlist from raw_playlist
 
     Methods
@@ -46,7 +46,7 @@ class AppleMusicPlaylistParser:
         self.storefront = self.get_storefront()
         self.playlist_id = self.get_playlist_id()
         self.raw_playlist = self.get_raw_playlist()
-        self.playlist = self.parse_playlist()
+        self.parsed_playlist = self.parse_playlist()
 
     def get_storefront(self):
         """Parses the playlist URL to determine the storefront.
@@ -100,17 +100,17 @@ class AppleMusicPlaylistParser:
 
         Returns
         -------
-        playlist : Playlist
+        parsed_playlist : Playlist
             A Playlist object that represents the parsed playlist
         """
 
         raw_playlist = self.raw_playlist
 
-        playlist = Playlist()
-        playlist.title = raw_playlist["data"][0]["attributes"]["name"]
-        playlist.description = raw_playlist["data"][0]["attributes"]["description"]["standard"]
-        playlist.curator = raw_playlist["data"][0]["attributes"]["curatorName"]
-        playlist.date_modified = datetime.date.fromisoformat(raw_playlist["data"][0]["attributes"]["lastModifiedDate"][:10])
+        parsed_playlist = Playlist()
+        parsed_playlist.title = raw_playlist["data"][0]["attributes"]["name"]
+        parsed_playlist.description = raw_playlist["data"][0]["attributes"]["description"]["standard"]
+        parsed_playlist.curator = raw_playlist["data"][0]["attributes"]["curatorName"]
+        parsed_playlist.date_modified = datetime.date.fromisoformat(raw_playlist["data"][0]["attributes"]["lastModifiedDate"][:10])
 
         raw_song_list = raw_playlist["data"][0]["relationships"]["tracks"]["data"]
         for raw_song in raw_song_list:
@@ -120,6 +120,6 @@ class AppleMusicPlaylistParser:
             # TODO: define song.album
             song.isrc = raw_song["attributes"]["isrc"]
 
-            playlist.songs.append(song)
+            parsed_playlist.songs.append(song)
 
-        return playlist
+        return parsed_playlist

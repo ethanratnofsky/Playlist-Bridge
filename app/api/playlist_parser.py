@@ -11,8 +11,8 @@ class PlaylistParser:
     def parse(self):
         url = self.url
         if url.startswith("http://open.spotify.com/"):
-            return SpotifyPlaylistParser(url).playlist
+            return SpotifyPlaylistParser(url).parsed_playlist
         elif url.startswith("https://music.apple.com/"):
-            return AppleMusicPlaylistParser(url).playlist
+            return AppleMusicPlaylistParser(url).parsed_playlist
         elif url.startswith("http://tidal.com/"):
-            return TidalPlaylistParser(url).playlist
+            return TidalPlaylistParser(url).parsed_playlist
