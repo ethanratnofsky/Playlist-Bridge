@@ -89,8 +89,8 @@ class AppleMusicPlaylistParser:
 
         # TODO: need necessary authentication to access Apple Music API
         # TODO: load endpoint from env/config/settings file?
-        response = requests.get("https://api.music.apple.com/v1/catalog/{storefront}/playlists/{id}"
-                                .format(storefront=self.storefront, id=self.playlist_id))
+        response = requests.get(
+            f"https://api.music.apple.com/v1/catalog/{self.storefront}/playlists/{self.playlist_id}")
         return response.json()
 
     def parse_playlist(self):
