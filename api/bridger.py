@@ -1,7 +1,7 @@
 from .playlist_parsers import tidal_parser
 
 
-def bridge(src, dest, playlist_url):
+def bridge(src: str, dest: str, playlist_url: str):
     if src == 'tidal':
         playlist = tidal_parser.parse(playlist_url)
     # elif src == 'spotify':
