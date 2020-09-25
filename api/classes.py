@@ -1,7 +1,7 @@
 class Song:
     def __init__(self):
         self.title = ''
-        self.artist = ''
+        self.artists = []
         self.isrc = None
 
 
