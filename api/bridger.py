@@ -1,3 +1,6 @@
+from .playlist_parsers import tidal_parser
+
+
 def bridge(src, dest, playlist_url):
     if src == 'tidal':
         playlist = tidal_parser.parse(playlist_url)
