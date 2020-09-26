@@ -6,6 +6,7 @@ idna==2.10
 itsdangerous==1.1.0
 Jinja2==2.11.2
 MarkupSafe==1.1.1
+python-dotenv==0.14.0
 requests==2.24.0
 tidalapi==0.6.6
 urllib3==1.25.10
