@@ -16,14 +16,14 @@
     </div>
 
     <div id="main">
-        <form>
+        <form action="{{ url_for('submit') }}" method="POST">
             <div id="servicesContainer">
                 <div class="contentBox boxShadow service">
                     <label for="srcService">Source Service</label>
                     <br>
                     <img class="dropShadow" id="srcServiceIcon" src="/static/images/question_mark.svg" alt="No Service Selected">
                     <br>
-                    <select class="dropDownMenu" id="srcService" required>
+                    <select class="dropDownMenu" id="srcService" name="src_service" required>
                         <option data-img-src="/static/images/question_mark.svg" data-img-alt="No Service Selected" value="" selected></option>
                         <option data-img-src="/static/images/tidal_icon.svg" data-img-alt="TIDAL Icon" value="tidal">TIDAL</option>
                         <option data-img-src="/static/images/spotify_icon.svg" data-img-alt="Spotify Icon" value="spotify">Spotify</option>
@@ -36,7 +36,7 @@
                     <br>
                     <img class="dropShadow" id="destServiceIcon" src="/static/images/question_mark.svg" alt="No Service Selected">
                     <br>
-                    <select class="dropDownMenu" id="destService" required>
+                    <select class="dropDownMenu" id="destService" name="dest_service" required>
                         <option data-img-src="/static/images/question_mark.svg" data-img-alt="No Service Selected" value="" selected></option>
                         <option data-img-src="/static/images/tidal_icon.svg" data-img-alt="TIDAL Icon" value="tidal">TIDAL</option>
                         <option data-img-src="/static/images/spotify_icon.svg" data-img-alt="Spotify Icon" value="spotify">Spotify</option>
