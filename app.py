@@ -1,4 +1,5 @@
 from flask import Flask, render_template, request
+from api.bridger import bridge
 
 app = Flask(__name__)
 
@@ -10,9 +11,10 @@ def index():
 
 @app.route('/submit', methods=['POST'])
 def submit():
-    print('Source Service: ', request.form['src_service'])
-    print('Destination Service: ', request.form['dest_service'])
-    print('Playlist URL: ', request.form['playlist_url'])
+    form = request.form
+    print('Source Service: ', form['src_service'])
+    print('Destination Service: ', form['dest_service'])
+    print('Playlist URL: ', form['playlist_url'])
     return 'doing things!'
 
 
