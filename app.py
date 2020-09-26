@@ -15,6 +15,7 @@ def submit():
     print('Source Service: ', form['src_service'])
     print('Destination Service: ', form['dest_service'])
     print('Playlist URL: ', form['playlist_url'])
+    # bridge(form['src_service'], form['dest_service'], form['playlist_url'])
     return 'doing things!'
 
 
