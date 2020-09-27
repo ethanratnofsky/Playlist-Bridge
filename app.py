@@ -1,11 +1,8 @@
-from os import getenv
-
-import requests
 import secrets
-from flask import Flask, redirect, render_template, request, session, url_for
+from os import getenv
 from urllib.parse import urlencode
 
-from api.bridger import bridge
+from flask import Flask, redirect, render_template, request, session, url_for
 
 # Spotify authentication information
 CLIENT_ID = getenv('CLIENT_ID')
@@ -57,7 +54,6 @@ def submit():
     if form['dest_service'] == 'spotify':
         return redirect(url_for('auth_spotify'))
 
-    # bridge(form['src_service'], form['dest_service'], form['playlist_url'])
     return 'doing things!'
 
 
