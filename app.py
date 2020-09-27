@@ -54,7 +54,7 @@ def submit():
     # Get form data
     form = request.form
 
-    if form['src_service'] == 'spotify' or form['dest_service'] == 'spotify':
+    if form['dest_service'] == 'spotify':
         return redirect(url_for('auth_spotify'))
 
     # bridge(form['src_service'], form['dest_service'], form['playlist_url'])
