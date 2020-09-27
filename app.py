@@ -79,7 +79,7 @@ def spotify_callback():
     # Parse response
     tokens = tokens_response.json()
     session['spotify_tokens'] = {
-        'access_token': tokens.get('access_tokens'),
+        'access_token': tokens.get('access_token'),
         'refresh_token': tokens.get('refresh_token')  # Do I need this?
     }
 
