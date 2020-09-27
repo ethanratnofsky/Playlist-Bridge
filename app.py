@@ -33,7 +33,7 @@ def auth_spotify():
     session_id = request.args.get('session_id')
 
     # Verify session ID
-    if session_id != session['id']:
+    if session_id != session.get('id'):
         print('ERROR: Session ID mismatch.')  # TODO: Log this as an error
         abort(400)  # 400 Bad Request
 
@@ -65,7 +65,7 @@ def spotify_callback():
     state = request.args.get('state')
 
     # Verify state ID
-    if state != session['spotify_auth_state']:
+    if state != session.get('spotify_auth_state'):
         print('ERROR: State ID mismatch.')  # TODO: Log this as an error
         abort(400)  # 400 Bad Request
 
@@ -105,14 +105,14 @@ def bridge():
     session_id = request.args.get('session_id')
 
     # Verify session ID
-    if session_id != session['id']:
+    if session_id != session.get('id'):
         print('ERROR: Session ID mismatch.')  # TODO: Log this as an error
         abort(400)  # 400 Bad Request
 
     # Get form data
-    src_service = session['form_data']['src_service']
-    dest_service = session['form_data']['dest_service']
-    playlist_url = session['form_data']['playlist_url']
+    src_service = session.get('form_data').get('src_service')
+    dest_service = session.get('form_data').get('dest_service')
+    playlist_url = session.get('form_data').get('playlist_url')
 
     # Bridge!
     bridger.bridge(src_service, dest_service, playlist_url)
@@ -125,8 +125,8 @@ def submit():
     # Save form data to session
     session['form_data'] = request.form
 
-    if session['form_data']['src_service'] == 'spotify':
-        return redirect(url_for('auth_spotify', session_id=session['id']))
+    if session.get('form_data').get('src_service') == 'spotify':
+        return redirect(url_for('auth_spotify', session_id=session.get('id')))
     else:
         return redirect(url_for('bridge'))
 
