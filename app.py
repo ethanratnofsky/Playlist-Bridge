@@ -115,9 +115,7 @@ def bridge():
     playlist_url = session.get('form_data').get('playlist_url')
 
     # Bridge!
-    bridger.bridge(src_service, dest_service, playlist_url)
-
-    return 'complete'
+    return bridger.bridge(src_service, dest_service, playlist_url)
 
 
 @app.route('/submit', methods=['POST'])

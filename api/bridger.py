@@ -6,8 +6,6 @@ def bridge(src: str, dest: str, playlist_url: str):
     playlist = Playlist()
     if src == 'tidal':
         playlist = tidal_parser.parse(playlist_url)
-    #
-    # if dest == 'spotify':
-    #     print(spotify_creator.create(playlist))
 
-    return playlist
+    if dest == 'spotify':
+        return spotify_creator.create(playlist)
