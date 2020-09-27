@@ -2,6 +2,7 @@ import secrets
 from os import getenv
 from urllib.parse import urlencode
 
+from api import bridger
 import requests
 from flask import abort, Flask, redirect, render_template, request, session, url_for
 
@@ -83,18 +84,31 @@ def spotify_callback():
         'refresh_token': tokens.get('refresh_token')  # Do I need this?
     }
 
-    return 'success!'
+    return redirect(url_for('bridge'))
+
+
+@app.route('/bridge')
+def bridge():
+    # Get form data
+    src_service = session['form_data']['src_service']
+    dest_service = session['form_data']['dest_service']
+    playlist_url = session['form_data']['playlist_url']
+
+    # Bridge!
+    bridger.bridge(src_service, dest_service, playlist_url)
+
+    return 'complete'
 
 
 @app.route('/submit', methods=['POST'])
 def submit():
-    # Get form data
-    form = request.form
+    # Parse form data
+    session['form_data'] = request.form
 
-    if form['dest_service'] == 'spotify':
+    if session['form_data']['src_service'] == 'spotify':
         return redirect(url_for('auth_spotify'))
-
-    return 'doing things!'
+    else:
+        return redirect(url_for('bridge'))
 
 
 if __name__ == '__main__':
