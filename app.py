@@ -96,7 +96,7 @@ def spotify_callback():
         'refresh_token': tokens.get('refresh_token')  # Do I need this?
     }
 
-    return redirect(url_for('bridge'))
+    return redirect(url_for('bridge', session_id=session.get('id')))
 
 
 @app.route('/bridge')
@@ -128,7 +128,7 @@ def submit():
     if session.get('form_data').get('src_service') == 'spotify':
         return redirect(url_for('auth_spotify', session_id=session.get('id')))
     else:
-        return redirect(url_for('bridge'))
+        return redirect(url_for('bridge', session_id=session.get('id')))
 
 
 if __name__ == '__main__':
