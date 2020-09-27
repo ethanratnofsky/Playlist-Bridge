@@ -1,4 +1,3 @@
-from .playlist_creators import spotify_creator
 from .playlist_parsers import tidal_parser
 
 
