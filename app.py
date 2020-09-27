@@ -20,11 +20,23 @@ app.secret_key = getenv('SECRET_KEY')
 
 @app.route('/')
 def index():
+    # Clear current session data and get new session id
+    session.clear()
+    session['id'] = secrets.token_urlsafe(16)
+
     return render_template('index.html')
 
 
 @app.route('/auth-spotify')
 def auth_spotify():
+    # Get query parameters
+    session_id = request.args.get('session_id')
+
+    # Verify session ID
+    if session_id != session['id']:
+        print('ERROR: Session ID mismatch.')  # TODO: Log this as an error
+        abort(400)  # 400 Bad Request
+
     # Generate and remember random URL-safe string to prevent Cross-Site Request Forgery
     state = secrets.token_urlsafe(16)
     session['spotify_auth_state'] = state
@@ -89,6 +101,14 @@ def spotify_callback():
 
 @app.route('/bridge')
 def bridge():
+    # Get query parameters
+    session_id = request.args.get('session_id')
+
+    # Verify session ID
+    if session_id != session['id']:
+        print('ERROR: Session ID mismatch.')  # TODO: Log this as an error
+        abort(400)  # 400 Bad Request
+
     # Get form data
     src_service = session['form_data']['src_service']
     dest_service = session['form_data']['dest_service']
@@ -102,11 +122,11 @@ def bridge():
 
 @app.route('/submit', methods=['POST'])
 def submit():
-    # Parse form data
+    # Save form data to session
     session['form_data'] = request.form
 
     if session['form_data']['src_service'] == 'spotify':
-        return redirect(url_for('auth_spotify'))
+        return redirect(url_for('auth_spotify', session_id=session['id']))
     else:
         return redirect(url_for('bridge'))
 
