@@ -45,10 +45,10 @@ def create_playlist(user_id: str, playlist: Playlist) -> dict:
     }
 
     # Create Spotify playlist by making POST request to Spotify API endpoint
-    response = requests.post(SPOTIFY_USER_PLAYLISTS_URL.format(user_id=user_id), headers=headers, data=payload)
+    response = requests.post(SPOTIFY_USER_PLAYLISTS_URL.format(user_id=user_id), headers=headers, data=json.dumps(payload))
 
     # Check for non-success status code
-    if response.status_code != 200:
+    if response.status_code != 200 and response.status_code != 201:
         print('ERROR: Could not create a new Spotify playlist.')  # TODO: Log this as an error
         abort(response.status_code)
 
