@@ -16,9 +16,6 @@ CLIENT_ID = getenv('CLIENT_ID')
 CLIENT_SECRET = getenv('CLIENT_SECRET')
 REDIRECT_URI = getenv('REDIRECT_URI')
 
-# Spotify tokens
-spotify_tokens = None
-
 # Initialize Flask app
 app = Flask(__name__)
 app.secret_key = getenv('SECRET_KEY')
@@ -99,9 +96,8 @@ def spotify_callback():
         print('ERROR: Failed to get token data.')  # TODO: Log this as an error
         abort(tokens_response.status_code)
 
-    # Set tokens as global variable
-    global spotify_tokens
-    spotify_tokens = tokens_response.json()
+    # Save tokens to session
+    session['spotify_tokens'] = tokens_response.json()
 
     return redirect(url_for('bridge', session_id=session.get('id')))
 
@@ -120,8 +116,7 @@ def bridge():
     playlist_url = session.get('form_data').get('playlist_url')
 
     # Bridge!
-    print('spotify_tokens: ', spotify_tokens)
-    playlist_creator_response = bridger.bridge(src_service, dest_service, playlist_url, spotify_tokens)
+    playlist_creator_response = bridger.bridge(src_service, dest_service, playlist_url)
 
     for song in playlist_creator_response.songs_added:
         playlist_creator_response.songs_added[playlist_creator_response.songs_added.index(song)] = vars(song)
