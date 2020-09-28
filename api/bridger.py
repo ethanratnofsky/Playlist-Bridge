@@ -1,9 +1,10 @@
-from .classes import Playlist
+from .classes import Playlist, PlaylistCreatorResponse
+from .playlist_creators import spotify_creator
 from .playlist_parsers import tidal_parser
 from flask import abort
 
 
-def bridge(src: str, dest: str, playlist_url: str):
+def bridge(src: str, dest: str, playlist_url: str) -> PlaylistCreatorResponse:
     playlist = Playlist()
     if src == 'tidal':
         playlist = tidal_parser.parse(playlist_url)
