@@ -6,9 +6,11 @@ from api import bridger
 import requests
 from flask import abort, Flask, redirect, render_template, request, session, url_for
 
-# Spotify authentication information
+# Spotify API endpoints
 SPOTIFY_AUTH_URL = getenv('SPOTIFY_AUTH_URL')
 SPOTIFY_TOKEN_URL = getenv('SPOTIFY_TOKEN_URL')
+
+# Spotify client information
 CLIENT_ID = getenv('CLIENT_ID')
 CLIENT_SECRET = getenv('CLIENT_SECRET')
 REDIRECT_URI = getenv('REDIRECT_URI')
