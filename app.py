@@ -1,4 +1,5 @@
 import secrets
+import webbrowser
 from os import getenv
 from urllib.parse import urlencode
 
@@ -117,6 +118,8 @@ def bridge():
 
     # Bridge!
     playlist_creator_response = bridger.bridge(src_service, dest_service, playlist_url)
+
+    webbrowser.open(playlist_creator_response.playlist_url)
 
     for song in playlist_creator_response.songs_added:
         playlist_creator_response.songs_added[playlist_creator_response.songs_added.index(song)] = vars(song)
