@@ -5,7 +5,7 @@ from .playlist_creators import spotify_creator
 from .playlist_parsers import tidal_parser
 
 
-def bridge(src: str, dest: str, playlist_url: str) -> PlaylistCreatorResponse:
+def bridge(src: str, dest: str, playlist_url: str, tokens=None) -> PlaylistCreatorResponse:
     playlist = Playlist()
 
     # Parse playlist from source service
@@ -17,7 +17,7 @@ def bridge(src: str, dest: str, playlist_url: str) -> PlaylistCreatorResponse:
 
     # Return playlist created with destination service
     if dest == 'spotify':
-        return spotify_creator.create(playlist)
+        return spotify_creator.create(playlist, tokens)
     else:
         print('ERROR: Unknown destination service.')  # TODO: Log this as an error
         abort(500)  # 500 Internal Server Error

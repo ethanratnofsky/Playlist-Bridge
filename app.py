@@ -11,12 +11,13 @@ from api import bridger
 SPOTIFY_AUTH_URL = getenv('SPOTIFY_AUTH_URL')
 SPOTIFY_TOKEN_URL = getenv('SPOTIFY_TOKEN_URL')
 
-SPOTIFY_ACCESS_TOKEN = ''
-
 # Spotify client information
 CLIENT_ID = getenv('CLIENT_ID')
 CLIENT_SECRET = getenv('CLIENT_SECRET')
 REDIRECT_URI = getenv('REDIRECT_URI')
+
+# Spotify tokens
+spotify_tokens = None
 
 # Initialize Flask app
 app = Flask(__name__)
@@ -94,20 +95,17 @@ def spotify_callback():
         print('ERROR: Failed to get token data.')  # TODO: Log this as an error
         abort(tokens_response.status_code)
 
-    # Set tokens as environment variables
-    tokens = tokens_response.json()
-    global SPOTIFY_ACCESS_TOKEN
-    SPOTIFY_ACCESS_TOKEN = tokens.get('access_token')
+    # Set tokens as global variable
+    global spotify_tokens
+    spotify_tokens = tokens_response.json()
 
     return redirect(url_for('bridge', session_id=session.get('id')))
 
 
 @app.route('/bridge')
 def bridge():
-    # Get query parameters
-    session_id = request.args.get('session_id')
-
     # Verify session ID
+    session_id = request.args.get('session_id')
     if session_id != session.get('id'):
         print('ERROR: Session ID mismatch.')  # TODO: Log this as an error
         abort(400)  # 400 Bad Request
@@ -118,7 +116,8 @@ def bridge():
     playlist_url = session.get('form_data').get('playlist_url')
 
     # Bridge!
-    playlist_creator_response = bridger.bridge(src_service, dest_service, playlist_url)
+    print('spotify_tokens: ', spotify_tokens)
+    playlist_creator_response = bridger.bridge(src_service, dest_service, playlist_url, spotify_tokens)
 
     return playlist_creator_response
 
@@ -128,7 +127,7 @@ def submit():
     # Save form data to session
     session['form_data'] = request.form
 
-    if session.get('form_data').get('src_service') == 'spotify':
+    if session.get('form_data').get('dest_service') == 'spotify':
         return redirect(url_for('auth_spotify', session_id=session.get('id')))
     else:
         return redirect(url_for('bridge', session_id=session.get('id')))

@@ -5,7 +5,6 @@ import requests
 from flask import abort
 
 from ..classes import Playlist, PlaylistCreatorResponse, Song
-from ...app import SPOTIFY_ACCESS_TOKEN as ACCESS_TOKEN  # TODO: THIS DOESN'T WORK :(
 
 # Spotify API endpoints
 SPOTIFY_PROFILE_URL = getenv('SPOTIFY_PROFILE_URL')
@@ -132,7 +131,12 @@ def add_songs(songs: list, playlist_id: str) -> PlaylistCreatorResponse:
     return playlist_creator_response
 
 
-def create(src_playlist: Playlist) -> PlaylistCreatorResponse:
+def create(src_playlist: Playlist, tokens: dict) -> PlaylistCreatorResponse:
+    # Assign global variables for tokens
+    global ACCESS_TOKEN, REFRESH_TOKEN
+    ACCESS_TOKEN = tokens.get('access_token')
+    REFRESH_TOKEN = tokens.get('refresh_token')
+
     # Get Spotify user ID
     user_id = get_user_id()
 
