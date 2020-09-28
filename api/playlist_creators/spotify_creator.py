@@ -147,5 +147,6 @@ def create(src_playlist: Playlist, access_token: str) -> PlaylistCreatorResponse
 
     # Add songs to new Spotify playlist
     playlist_creator_response = add_songs(src_playlist.songs, spotify_playlist.get('id'))
+    playlist_creator_response.playlist_url = spotify_playlist.get('external_urls').get('spotify')
 
     return playlist_creator_response
