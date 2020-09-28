@@ -1,6 +1,7 @@
 from os import getenv
 
 import tidalapi
+
 from ..classes import Playlist, Song
 
 TIDAL_USER = getenv('TIDAL_USER')
@@ -11,7 +12,7 @@ def get_session(username: str, password: str) -> tidalapi.Session:
     session = tidalapi.Session()
     session.login(username, password)
 
-    assert(session.check_login())
+    assert (session.check_login())
     return session
 
 

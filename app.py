@@ -2,9 +2,10 @@ import secrets
 from os import getenv
 from urllib.parse import urlencode
 
-from api import bridger
 import requests
 from flask import abort, Flask, redirect, render_template, request, session, url_for
+
+from api import bridger
 
 # Spotify API endpoints
 SPOTIFY_AUTH_URL = getenv('SPOTIFY_AUTH_URL')

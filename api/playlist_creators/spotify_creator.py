@@ -4,8 +4,8 @@ from os import getenv
 import requests
 from flask import abort
 
-from ...app import SPOTIFY_ACCESS_TOKEN as ACCESS_TOKEN  # TODO: THIS DOESN'T WORK :(
 from ..classes import Playlist, PlaylistCreatorResponse, Song
+from ...app import SPOTIFY_ACCESS_TOKEN as ACCESS_TOKEN  # TODO: THIS DOESN'T WORK :(
 
 # Spotify API endpoints
 SPOTIFY_PROFILE_URL = getenv('SPOTIFY_PROFILE_URL')
