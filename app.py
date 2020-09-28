@@ -127,7 +127,3 @@ def submit():
         return redirect(url_for('auth_spotify', session_id=session.get('id')))
     else:
         return redirect(url_for('bridge', session_id=session.get('id')))
-
-
-if __name__ == '__main__':
-    app.run(debug=True)
