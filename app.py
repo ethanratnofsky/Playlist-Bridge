@@ -48,7 +48,11 @@ def auth_spotify():
     session['spotify_auth_state'] = state
 
     # Define scope for authorization
-    scope = 'playlist-read-collaborative playlist-modify-public playlist-read-private playlist-modify-private'
+    scope = 'user-read-private ' \
+            'playlist-read-collaborative ' \
+            'playlist-modify-public ' \
+            'playlist-read-private ' \
+            'playlist-modify-private'
 
     # GET request query parameters
     params = {
