@@ -9,6 +9,7 @@ from ..classes import Playlist, PlaylistCreatorResponse, Song
 SPOTIFY_PROFILE_URL = getenv('SPOTIFY_PROFILE_URL')
 SPOTIFY_USER_PLAYLISTS_URL = getenv('SPOTIFY_USER_PLAYLISTS_URL')
 SPOTIFY_SEARCH_URL = getenv('SPOTIFY_SEARCH_URL')
+SPOTIFY_ADD_SONGS_URL = getenv('SPOTIFY_ADD_SONGS_URL')
 
 # Spotify access token
 ACCESS_TOKEN = session.get('spotify_tokens').get('access_token')
@@ -85,6 +86,18 @@ def add_songs(songs: list, playlist_id: str):
     # Iterate through given songs; search Spotify for their URIs
     for song in songs:
         search_results = search_spotify(song)
+        try:
+            uris.append(search_results.get('tracks').get('items')[0].get('uri'))
+        except IndexError:
+            songs_not_found.append(song)
+
+    # POST request header fields
+    headers = {
+        'Authorization': 'Bearer ' + ACCESS_TOKEN,
+        'Content-Type': 'application/json'
+    }
+
+    # POST request body parameters
 
 
 def create(src_playlist: Playlist) -> PlaylistCreatorResponse:
