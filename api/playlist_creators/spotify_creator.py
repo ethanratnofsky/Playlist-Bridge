@@ -22,7 +22,14 @@ def get_user_id() -> str:
         'Authorization': 'Bearer ' + ACCESS_TOKEN
     }
 
-    return requests.get(SPOTIFY_PROFILE_URL, headers=header).json().get('id')
+    response = requests.get(SPOTIFY_PROFILE_URL, headers=header)
+
+    # Check for non-success status code
+    if response.status_code != 200:
+        print('ERROR: Error accessing Spotify user ID.')  # TODO: Log this as an error
+        abort(response.status_code)
+
+    return response.json().get('id')
 
 
 def create_playlist(user_id: str, playlist: Playlist) -> dict:
@@ -42,6 +49,11 @@ def create_playlist(user_id: str, playlist: Playlist) -> dict:
 
     # Create Spotify playlist by making POST request to Spotify API endpoint
     response = requests.post(SPOTIFY_USER_PLAYLISTS_URL.format(user_id=user_id), headers=headers, data=payload)
+
+    # Check for non-success status code
+    if response.status_code != 200:
+        print('ERROR: Could not create a new Spotify playlist.')  # TODO: Log this as an error
+        abort(response.status_code)
 
     return response.json()
 
@@ -77,6 +89,11 @@ def search_spotify(song: Song) -> dict:
     # Search Spotify with for song title and primary artist name with GET request to Spotify API endpoint
     results = requests.get(SPOTIFY_SEARCH_URL, headers=header, params=params)
 
+    # Check for non-success status code
+    if results.status_code != 200:
+        print('ERROR: Error searching Spotify for song.')  # TODO: Log this as an error
+        abort(results.status_code)
+
     return results.json()
 
 
@@ -105,6 +122,7 @@ def add_songs(songs: list, playlist_id: str) -> PlaylistCreatorResponse:
 
     response = requests.post(SPOTIFY_ADD_SONGS_URL, headers=headers, data=payload)
 
+    # Check for non-success status code
     if response.status_code != 200:
         print('ERROR: Could not add songs to Spotify playlist.')  # TODO: Log this as an error
         abort(response.status_code)
