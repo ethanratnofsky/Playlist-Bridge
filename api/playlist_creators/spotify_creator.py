@@ -9,11 +9,14 @@ from ..classes import Playlist, PlaylistCreatorResponse
 SPOTIFY_PROFILE_URL = getenv('SPOTIFY_PROFILE_URL')
 SPOTIFY_USER_PLAYLISTS_URL = getenv('SPOTIFY_USER_PLAYLISTS_URL')
 
+# Spotify access token
+ACCESS_TOKEN = session.get('spotify_tokens').get('access_token')
+
 
 def get_user_id() -> str:
     # GET request header field
     header = {
-        'Authorization': 'Bearer ' + session.get('spotify_tokens').get('access_token')
+        'Authorization': 'Bearer ' + ACCESS_TOKEN
     }
 
     return requests.get(SPOTIFY_PROFILE_URL, headers=header).json().get('id')
@@ -22,7 +25,7 @@ def get_user_id() -> str:
 def create_playlist(user_id: str, playlist: Playlist) -> dict:
     # POST request header fields
     headers = {
-        'Authorization': 'Bearer ' + session.get('spotify_tokens').get('access_token'),
+        'Authorization': 'Bearer ' + ACCESS_TOKEN,
         'Content-Type': 'application/json'
     }
 
