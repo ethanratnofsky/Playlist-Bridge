@@ -1,7 +1,7 @@
 from os import getenv
 
 import tidalapi
-from ..classes import Song, Playlist
+from ..classes import Playlist, Song
 
 TIDAL_USER = getenv('TIDAL_USER')
 TIDAL_PASS = getenv('TIDAL_PASS')
