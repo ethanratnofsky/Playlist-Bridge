@@ -46,7 +46,7 @@ def auth_spotify():
     # Define scope for authorization
     scope = 'playlist-read-collaborative playlist-modify-public playlist-read-private playlist-modify-private'
 
-    # Query parameters for GET request to Spotify Accounts service
+    # GET request query parameters
     params = {
         'client_id': CLIENT_ID,
         'response_type': 'code',
