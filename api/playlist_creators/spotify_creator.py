@@ -120,7 +120,7 @@ def add_songs(songs: list, playlist_id: str) -> PlaylistCreatorResponse:
     # POST request body parameters
     payload = json.dumps(uris)
 
-    response = requests.post(SPOTIFY_ADD_SONGS_URL, headers=headers, data=payload)
+    response = requests.post(SPOTIFY_ADD_SONGS_URL.format(playlist_id=playlist_id), headers=headers, data=payload)
 
     # Check for non-success status code
     if response.status_code != 200:
