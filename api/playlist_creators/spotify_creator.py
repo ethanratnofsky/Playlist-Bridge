@@ -120,7 +120,7 @@ def add_songs(songs: list, playlist_id: str) -> PlaylistCreatorResponse:
     response = requests.post(SPOTIFY_ADD_SONGS_URL.format(playlist_id=playlist_id), headers=headers, data=payload)
 
     # Check for non-success status code
-    if response.status_code != 200:
+    if response.status_code != 200 and response.status_code != 201:
         print('ERROR: Could not add songs to Spotify playlist.')  # TODO: Log this as an error
         abort(response.status_code)
 
