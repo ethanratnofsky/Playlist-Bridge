@@ -47,7 +47,7 @@ def auth_spotify():
     scope = 'playlist-read-collaborative playlist-modify-public playlist-read-private playlist-modify-private'
 
     # Query parameters for GET request to Spotify Accounts service
-    payload = {
+    params = {
         'client_id': CLIENT_ID,
         'response_type': 'code',
         'redirect_uri': REDIRECT_URI,
@@ -56,7 +56,7 @@ def auth_spotify():
     }
 
     # Redirect user to Spotify Accounts service for authorization
-    return redirect(f'{SPOTIFY_AUTH_URL}/?{urlencode(payload)}')
+    return redirect(f'{SPOTIFY_AUTH_URL}/?{urlencode(params)}')
 
 
 @app.route('/spotify-callback')
