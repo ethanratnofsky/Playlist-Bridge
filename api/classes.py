@@ -16,5 +16,5 @@ class Playlist:
 class PlaylistCreatorResponse:
     def __init__(self):
         self.songs_added = []
-        self.songs_not_added = []
+        self.songs_not_found = []
         self.playlist_url = ''
