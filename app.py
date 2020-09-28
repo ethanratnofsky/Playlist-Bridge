@@ -123,7 +123,13 @@ def bridge():
     print('spotify_tokens: ', spotify_tokens)
     playlist_creator_response = bridger.bridge(src_service, dest_service, playlist_url, spotify_tokens)
 
-    return playlist_creator_response
+    for song in playlist_creator_response.songs_added:
+        playlist_creator_response.songs_added[playlist_creator_response.songs_added.index(song)] = vars(song)
+
+    for song in playlist_creator_response.songs_not_found:
+        playlist_creator_response.songs_not_found[playlist_creator_response.songs_not_found.index(song)] = vars(song)
+
+    return vars(playlist_creator_response)
 
 
 @app.route('/submit', methods=['POST'])
