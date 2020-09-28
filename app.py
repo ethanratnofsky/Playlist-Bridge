@@ -10,6 +10,8 @@ from flask import abort, Flask, redirect, render_template, request, session, url
 SPOTIFY_AUTH_URL = getenv('SPOTIFY_AUTH_URL')
 SPOTIFY_TOKEN_URL = getenv('SPOTIFY_TOKEN_URL')
 
+SPOTIFY_ACCESS_TOKEN = ''
+
 # Spotify client information
 CLIENT_ID = getenv('CLIENT_ID')
 CLIENT_SECRET = getenv('CLIENT_SECRET')
@@ -91,12 +93,10 @@ def spotify_callback():
         print('ERROR: Failed to get token data.')  # TODO: Log this as an error
         abort(tokens_response.status_code)
 
-    # Parse response
+    # Set tokens as environment variables
     tokens = tokens_response.json()
-    session['spotify_tokens'] = {
-        'access_token': tokens.get('access_token'),
-        'refresh_token': tokens.get('refresh_token')  # Do I need this?
-    }
+    global SPOTIFY_ACCESS_TOKEN
+    SPOTIFY_ACCESS_TOKEN = tokens.get('access_token')
 
     return redirect(url_for('bridge', session_id=session.get('id')))
 
