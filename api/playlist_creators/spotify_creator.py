@@ -13,7 +13,7 @@ SPOTIFY_SEARCH_URL = getenv('SPOTIFY_SEARCH_URL')
 SPOTIFY_ADD_SONGS_URL = getenv('SPOTIFY_ADD_SONGS_URL')
 
 # Spotify access token
-ACCESS_TOKEN = session.get('spotify_tokens').get('access_token')
+ACCESS_TOKEN = ''
 
 
 def get_user_id() -> str:
@@ -134,7 +134,11 @@ def add_songs(songs: list, playlist_id: str) -> PlaylistCreatorResponse:
     return playlist_creator_response
 
 
-def create(src_playlist: Playlist) -> PlaylistCreatorResponse:
+def create(src_playlist: Playlist, access_token: str) -> PlaylistCreatorResponse:
+    # Set access_token to be global variable
+    global ACCESS_TOKEN
+    ACCESS_TOKEN = access_token
+
     # Get Spotify user ID
     user_id = get_user_id()
 
