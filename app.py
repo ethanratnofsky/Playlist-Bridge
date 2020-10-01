@@ -20,6 +20,10 @@ REDIRECT_URI = getenv('REDIRECT_URI')
 # Initialize Flask app
 app = Flask(__name__)
 app.secret_key = getenv('SECRET_KEY')
+app.jinja_options = {
+    'trim_blocks': True,
+    'lstrip_blocks': True
+}
 
 
 @app.route('/')
