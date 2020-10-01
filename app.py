@@ -58,7 +58,8 @@ def auth_spotify():
         'response_type': 'code',
         'redirect_uri': REDIRECT_URI,
         'state': state,
-        'scope': scope
+        'scope': scope,
+        'show_dialog': 'true',
     }
 
     # Redirect user to Spotify Accounts service for authorization
