@@ -122,13 +122,10 @@ def bridge():
     # Open created playlist in new tab
     webbrowser.open(playlist_creator_response.playlist_url, new=2)
 
-    for song in playlist_creator_response.songs_added:
-        playlist_creator_response.songs_added[playlist_creator_response.songs_added.index(song)] = vars(song)
-
-    for song in playlist_creator_response.songs_not_found:
-        playlist_creator_response.songs_not_found[playlist_creator_response.songs_not_found.index(song)] = vars(song)
-
-    return vars(playlist_creator_response)
+    return render_template('bridge.html',
+                           songs_added=playlist_creator_response.songs_added,
+                           songs_not_found=playlist_creator_response.songs_not_found,
+                           playlist_url=playlist_creator_response.playlist_url)
 
 
 @app.route('/submit', methods=['POST'])
@@ -140,8 +137,3 @@ def submit():
         return redirect(url_for('auth_spotify', session_id=session.get('id')))
     else:
         return redirect(url_for('bridge', session_id=session.get('id')))
-
-
-@app.route('/development')
-def development():
-    return render_template('development.html')
