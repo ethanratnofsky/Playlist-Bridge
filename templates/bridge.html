@@ -6,21 +6,17 @@
 {% endblock %}
 
 {% block body %}
-    {% for song in songs_added %}
-        {{ loop.index }}) {{ song.title }} by
-            {% if song.artists|length == 1 %}
-                {{ song.artists[0] }}
-            {% elif song.artists|length == 2 %}
-                {{ song.artists[0] }} and {{ song.artists[1] }}
+    <ol>
+        {% for song in songs_added %}
+            <li>{{ song.title }} - {% if song.artists|length == 1 %}{{ song.artists[0] }}
+            {% elif song.artists|length == 2 %}{{ song.artists[0] }} and {{ song.artists[1] }}
             {% else %}
                 {% for artist in song.artists %}
-                    {% if loop.last %}
-                        and {{ artist }}
-                    {% else %}
-                        {{ artist }},
+                    {% if loop.last %}and {{ artist }}
+                    {% else %}{{ artist }},
                     {% endif %}
                 {% endfor %}
-            {% endif %}
-        <br>
-    {% endfor %}
+            {% endif %}</li>
+        {% endfor %}
+    </ol>
 {% endblock %}
