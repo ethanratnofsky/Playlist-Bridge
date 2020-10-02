@@ -1,3 +1,15 @@
+.header {
+    text-align: center;
+    padding: 1em 0;
+}
+
+.header h1 {
+    font-family: 'Lobster', cursive;
+    font-size: 60px;
+    font-weight: normal;
+    margin: 0;
+}
+
 .boxShadow {
     box-shadow: 0 0 5px var(--shadow-color);
 }
