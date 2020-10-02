@@ -143,3 +143,31 @@ def submit():
         return redirect(url_for('auth_spotify', session_id=session.get('id')))
     else:
         return redirect(url_for('bridge', session_id=session.get('id')))
+
+
+@app.route('/development')
+def development():
+    from api.classes import PlaylistCreatorResponse, Song
+
+    playlist_creator_response = PlaylistCreatorResponse()
+    playlist_creator_response.playlist_url = 'https://google.com'
+
+    song1 = Song()
+    song1.title = 'Song1'
+    song1.artists = ['Artist1']
+    song2 = Song()
+    song2.title = 'Song2'
+    song2.artists = ['Artist1', 'Artist2']
+    song3 = Song()
+    song3.title = 'Song3'
+    song3.artists = ['Artist1', 'Artist2', 'Artist3']
+
+    songs = [song1, song2, song3] * 5
+
+    playlist_creator_response.songs_added.extend(songs)
+    playlist_creator_response.songs_not_found.extend(songs)
+
+    return render_template('bridge.html',
+                           songs_added=playlist_creator_response.songs_added,
+                           songs_not_found=playlist_creator_response.songs_not_found,
+                           playlist_url=playlist_creator_response.playlist_url)
