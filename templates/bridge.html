@@ -6,35 +6,37 @@
 {% endblock %}
 
 {% block body %}
-    Playlist URL: <a href={{ playlist_url }}>{{ playlist_url }}</a>
-    <br>
-    Songs Added:
-    <ol>
-        {% for song in songs_added %}
-            <li>{{ song.title }} - {% if song.artists|length == 1 %}{{ song.artists[0] }}
-            {% elif song.artists|length == 2 %}{{ song.artists[0] }} and {{ song.artists[1] }}
-            {% else %}
-                {% for artist in song.artists %}
-                    {% if loop.last %}and {{ artist }}
-                    {% else %}{{ artist }},
-                    {% endif %}
-                {% endfor %}
-            {% endif %}</li>
-        {% endfor %}
-    </ol>
-    <br>
-    Songs Not Found:
-    <ol>
-        {% for song in songs_not_found %}
-            <li>{{ song.title }} - {% if song.artists|length == 1 %}{{ song.artists[0] }}
-            {% elif song.artists|length == 2 %}{{ song.artists[0] }} and {{ song.artists[1] }}
-            {% else %}
-                {% for artist in song.artists %}
-                    {% if loop.last %}and {{ artist }}
-                    {% else %}{{ artist }},
-                    {% endif %}
-                {% endfor %}
-            {% endif %}</li>
-        {% endfor %}
-    </ol>
+    <div class="contentBox boxShadow">
+        Playlist URL: <a href={{ playlist_url }}>{{ playlist_url }}</a>
+        <br>
+        Songs Added:
+        <ol>
+            {% for song in songs_added %}
+                <li>{{ song.title }} - {% if song.artists|length == 1 %}{{ song.artists[0] }}
+                {% elif song.artists|length == 2 %}{{ song.artists[0] }} and {{ song.artists[1] }}
+                {% else %}
+                    {% for artist in song.artists %}
+                        {% if loop.last %}and {{ artist }}
+                        {% else %}{{ artist }},
+                        {% endif %}
+                    {% endfor %}
+                {% endif %}</li>
+            {% endfor %}
+        </ol>
+        <br>
+        Songs Not Found:
+        <ol>
+            {% for song in songs_not_found %}
+                <li>{{ song.title }} - {% if song.artists|length == 1 %}{{ song.artists[0] }}
+                {% elif song.artists|length == 2 %}{{ song.artists[0] }} and {{ song.artists[1] }}
+                {% else %}
+                    {% for artist in song.artists %}
+                        {% if loop.last %}and {{ artist }}
+                        {% else %}{{ artist }},
+                        {% endif %}
+                    {% endfor %}
+                {% endif %}</li>
+            {% endfor %}
+        </ol>
+    </div>
 {% endblock %}
