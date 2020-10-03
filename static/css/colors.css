@@ -1,14 +1,14 @@
 :root {
-    --primary-color: #333;
-    --primary-darker: #222;
+    --primary-color: #333333;
+    --primary-darker: #222222;
 
-    --secondary-color: #fff;
+    --secondary-color: #ffffff;
 
     --tertiary-color: #258af6;
     --tertiary-darker: #2382e7;
 
     --error-color: #f55555;
 
-    --shadow-color: #000;
-    --shadow-color-inverted: #fff;
+    --shadow-color: #000000;
+    --shadow-color-inverted: #ffffff;
 }

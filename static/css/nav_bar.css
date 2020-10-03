@@ -13,7 +13,7 @@
     font-family: 'Lobster', cursive;
     font-size: 40px;
     font-weight: normal;
-    color: #fff;
+    color: var(--secondary-color);
 }
 
 #navBar ul {
@@ -32,10 +32,10 @@
 #navBar li a {
     text-decoration: none;
     font-family: 'Arial Black', 'Gadget', sans-serif;
-    color: #fff;
+    color: var(--secondary-color);
     letter-spacing: 1px;
 }
 
 #navBar li a:hover {
-    color: #999;
+    color: #cccccc;
 }
