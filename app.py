@@ -1,5 +1,4 @@
 import secrets
-import webbrowser
 from os import getenv
 from urllib.parse import urlencode
 
@@ -120,9 +119,6 @@ def bridge():
 
     # Bridge!
     playlist_creator_response = bridger.bridge(src_service, dest_service, playlist_url)
-
-    # Open created playlist in new tab
-    webbrowser.open(playlist_creator_response.playlist_url, new=2)
 
     return render_template('summary.html',
                            playlist=playlist_creator_response.playlist,
