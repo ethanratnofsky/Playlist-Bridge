@@ -7,6 +7,15 @@ a.data {
     color: var(--secondary-color);
 }
 
+p.listLabel {
+    margin-bottom: 0;
+}
+
+ol {
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
 #summary {
     margin: auto 20em 3em 20em;
 }
