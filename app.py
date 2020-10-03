@@ -134,7 +134,7 @@ def submit():
     # Save form data to session
     session['form_data'] = request.form
 
-    if session.get('form_data').get('dest_service') == 'spotify':
+    if session.get('form_data').get('dest_service') == 'Spotify':
         # If destination service is Spotify, we need authorization
         return redirect(url_for('auth_spotify', session_id=session.get('id')))
     else:
