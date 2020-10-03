@@ -3,6 +3,7 @@
 {% block title %}Bridge Summary{% endblock %}
 
 {% block head %}
+    <link rel="stylesheet" type="text/css" href="/static/css/summary.css">
 {% endblock %}
 
 {% block body %}
@@ -11,7 +12,7 @@
         <p><i>Thanks for using Playlist Bridge!</i></p>
     </div>
 
-    <div class="contentBox boxShadow">
+    <div class="contentBox boxShadow" id="summary">
         Playlist Name: {{ playlist.name }}<br>
         Playlist Description: {{ playlist.description }}<br>
         Playlist Creator: {{ playlist.creator }}<br>
