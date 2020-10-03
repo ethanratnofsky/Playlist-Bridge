@@ -11,10 +11,10 @@ class Playlist:
         self.description = ''
         self.creator = ''
         self.songs = []
+        self.excluded_songs = []
 
 
 class PlaylistCreatorResponse:
     def __init__(self):
-        self.songs_added = []
-        self.songs_not_found = []
+        self.playlist = Playlist()
         self.playlist_url = ''
