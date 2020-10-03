@@ -168,5 +168,5 @@ def development():
 
     return render_template('summary.html',
                            playlist=playlist_creator_response.playlist,
-                           excluded_songs=songs,
+                           excluded_songs=[song1],
                            playlist_url=playlist_creator_response.playlist_url)

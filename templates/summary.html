@@ -20,32 +20,25 @@
         <p class="listLabel">Full Playlist:</p>
         <ol id="playlistSongs">
             {% for song in playlist.songs %}
-                <li><span class="data">{{ song.title }} - {% if song.artists|length == 1 %}{{ song.artists[0] }}
-                {% elif song.artists|length == 2 %}{{ song.artists[0] }} and {{ song.artists[1] }}
-                {% else %}
-                    {% for artist in song.artists %}
-                        {% if loop.last %}and {{ artist }}
-                        {% else %}{{ artist }},
+                <li {% if song in excluded_songs %}style="color: var(--error-color)"{% endif %}>
+                    <span class="data">{{ song.title }} -
+                        {% if song.artists|length == 1 %}{{ song.artists[0] }}
+                        {% elif song.artists|length == 2 %}{{ song.artists[0] }} and {{ song.artists[1] }}
+                        {% else %}
+                            {% for artist in song.artists %}
+                                {% if loop.last %}and {{ artist }}
+                                {% else %}{{ artist }},
+                                {% endif %}
+                            {% endfor %}
                         {% endif %}
-                    {% endfor %}
-                {% endif %}</span></li>
+                    </span>
+                {% if song in excluded_songs %}
+                    <span class="notFound">
+                        (not found on {{ playlist.dest_service }})
+                    </span>
+                {% endif %}
+                </li>
             {% endfor %}
         </ol>
-        {% if excluded_songs|length != 0 %}
-            <p class="listLabel">Excluded Song(s):</p>
-            <ol id="excludedSongs">
-                {% for song in excluded_songs %}
-                    <li><span class="data">{{ song.title }} - {% if song.artists|length == 1 %}{{ song.artists[0] }}
-                    {% elif song.artists|length == 2 %}{{ song.artists[0] }} and {{ song.artists[1] }}
-                    {% else %}
-                        {% for artist in song.artists %}
-                            {% if loop.last %}and {{ artist }}
-                            {% else %}{{ artist }},
-                            {% endif %}
-                        {% endfor %}
-                    {% endif %}</span></li>
-                {% endfor %}
-            </ol>
-        {% endif %}
     </div>
 {% endblock %}
