@@ -122,6 +122,7 @@ def bridge():
 
     return render_template('summary.html',
                            playlist=playlist_creator_response.playlist,
+                           excluded_songs=playlist_creator_response.excluded_songs,
                            playlist_url=playlist_creator_response.playlist_url)
 
 
@@ -165,8 +166,9 @@ def development():
     playlist.songs = songs * 3
 
     playlist_creator_response.playlist = playlist
+    playlist_creator_response.excluded_songs = [song1]
 
     return render_template('summary.html',
                            playlist=playlist_creator_response.playlist,
-                           excluded_songs=[song1],
+                           excluded_songs=playlist_creator_response.excluded_songs,
                            playlist_url=playlist_creator_response.playlist_url)
