@@ -94,19 +94,16 @@ def search_spotify(song: Song) -> dict:
     return results.json()
 
 
-def add_songs(songs: list, playlist_id: str) -> PlaylistCreatorResponse:
+def add_songs(playlist: Playlist, playlist_id: str) -> PlaylistCreatorResponse:
     uris = []  # List of Spotify URIs for songs in playlist
-    songs_added = []  # List of songs that were successfully added to the Spotify playlist
-    songs_not_found = []  # List of songs that are not found on Spotify
 
     # Iterate through given songs; search Spotify for their URIs
-    for song in songs:
+    for song in playlist.songs:
         search_results = search_spotify(song)
         try:
             uris.append(search_results.get('tracks').get('items')[0].get('uri'))
-            songs_added.append(song)
         except IndexError:
-            songs_not_found.append(song)
+            playlist.excluded_songs.append(song)
 
     # POST request header fields
     headers = {
@@ -125,8 +122,7 @@ def add_songs(songs: list, playlist_id: str) -> PlaylistCreatorResponse:
         abort(response.status_code)
 
     playlist_creator_response = PlaylistCreatorResponse()
-    playlist_creator_response.songs_added = songs_added
-    playlist_creator_response.songs_not_found = songs_not_found
+    playlist_creator_response.playlist = playlist
 
     return playlist_creator_response
 
@@ -144,7 +140,7 @@ def create(src_playlist: Playlist, tokens: dict) -> PlaylistCreatorResponse:
     spotify_playlist = create_playlist(user_id, src_playlist)
 
     # Add songs to new Spotify playlist
-    playlist_creator_response = add_songs(src_playlist.songs, spotify_playlist.get('id'))
+    playlist_creator_response = add_songs(src_playlist, spotify_playlist.get('id'))
     playlist_creator_response.playlist_url = spotify_playlist.get('external_urls').get('spotify')
 
     return playlist_creator_response

@@ -1,20 +1,20 @@
 {% extends 'base.html' %}
 
-{% block title %}Successful Bridge!{% endblock %}
+{% block title %}Bridge Summary{% endblock %}
 
 {% block head %}
 {% endblock %}
 
 {% block body %}
     <div class="header">
-        <h1 class="textShadow">Successful Bridge!</h1>
+        <h1 class="textShadow">Bridge Summary</h1>
         <p><i>Find your new playlist here: <a href={{ playlist_url }}>{{ playlist_url }}</a></i></p>
     </div>
 
     <div class="contentBox boxShadow">
         Songs Added:
         <ol>
-            {% for song in songs_added %}
+            {% for song in playlist.songs %}
                 <li>{{ song.title }} - {% if song.artists|length == 1 %}{{ song.artists[0] }}
                 {% elif song.artists|length == 2 %}{{ song.artists[0] }} and {{ song.artists[1] }}
                 {% else %}
@@ -29,7 +29,7 @@
         <br>
         Songs Not Found:
         <ol>
-            {% for song in songs_not_found %}
+            {% for song in playlist.excluded_songs %}
                 <li>{{ song.title }} - {% if song.artists|length == 1 %}{{ song.artists[0] }}
                 {% elif song.artists|length == 2 %}{{ song.artists[0] }} and {{ song.artists[1] }}
                 {% else %}

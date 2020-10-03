@@ -128,8 +128,7 @@ def bridge():
     webbrowser.open(playlist_creator_response.playlist_url, new=2)
 
     return render_template('summary.html',
-                           songs_added=playlist_creator_response.songs_added,
-                           songs_not_found=playlist_creator_response.songs_not_found,
+                           playlist=playlist_creator_response.playlist,
                            playlist_url=playlist_creator_response.playlist_url)
 
 
@@ -147,7 +146,7 @@ def submit():
 
 @app.route('/development')
 def development():
-    from api.classes import PlaylistCreatorResponse, Song
+    from api.classes import Playlist, PlaylistCreatorResponse, Song
 
     playlist_creator_response = PlaylistCreatorResponse()
     playlist_creator_response.playlist_url = 'https://google.com'
@@ -164,10 +163,15 @@ def development():
 
     songs = [song1, song2, song3] * 5
 
-    playlist_creator_response.songs_added.extend(songs)
-    playlist_creator_response.songs_not_found.extend(songs)
+    playlist = Playlist()
+    playlist.title = 'Playlist Title'
+    playlist.description = 'Test playlist.'
+    playlist.creator = 'Developer'
+    playlist.songs = songs
+    playlist.excluded_songs = songs
+
+    playlist_creator_response.playlist = playlist
 
     return render_template('summary.html',
-                           songs_added=playlist_creator_response.songs_added,
-                           songs_not_found=playlist_creator_response.songs_not_found,
+                           playlist=playlist_creator_response.playlist,
                            playlist_url=playlist_creator_response.playlist_url)
