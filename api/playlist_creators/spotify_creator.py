@@ -63,12 +63,13 @@ def search_spotify(song: Song) -> dict:
     # Remove segment of song title that specifies featured artist(s)
     # This is necessary because the 'featuring' segment can break the search query functionality
     # TODO: This may be easier to program with RegEx
-    if ' (feat. ' in song_title:
-        song_title = song_title[:song_title.find(' (feat. ')] + song_title[song_title.find(')', song_title.find(
-            ' (feat. ')) + 1:]
-    elif ' [feat. ' in song_title:
-        song_title = song_title[:song_title.find(' [feat. ')] + song_title[song_title.find(']', song_title.find(
-            ' [feat. ')) + 1:]
+    # pattern = r"( [([]feat\. [^\])]+[)\]]) "
+    # if ' (feat. ' in song_title:
+    #     song_title = song_title[:song_title.find(' (feat. ')] + song_title[song_title.find(')', song_title.find(
+    #         ' (feat. ')) + 1:]
+    # elif ' [feat. ' in song_title:
+    #     song_title = song_title[:song_title.find(' [feat. ')] + song_title[song_title.find(']', song_title.find(
+    #         ' [feat. ')) + 1:]
 
     # GET request header field
     header = {
@@ -113,6 +114,7 @@ def add_songs(playlist: Playlist, playlist_id: str) -> PlaylistCreatorResponse:
     }
 
     # POST request body parameters
+    # TODO: Spotify limits 100 songs per request
     payload = json.dumps(uris)
 
     response = requests.post(SPOTIFY_ADD_SONGS_URL.format(playlist_id=playlist_id), headers=headers, data=payload)
@@ -120,6 +122,7 @@ def add_songs(playlist: Playlist, playlist_id: str) -> PlaylistCreatorResponse:
     # Check for non-success status code
     if response.status_code != 201:
         print('ERROR: Could not add songs to Spotify playlist.')  # TODO: Log this as an error
+        print(response.json().get('error').get('message'))
         abort(response.status_code)
 
     playlist_creator_response = PlaylistCreatorResponse()
