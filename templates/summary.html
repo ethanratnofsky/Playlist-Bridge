@@ -33,7 +33,7 @@
         </ol>
         <p>Songs Not Found:</p>
         <ol>
-            {% for song in playlist.excluded_songs %}
+            {% for song in excluded_songs %}
                 <li><span class="data">{{ song.title }} - {% if song.artists|length == 1 %}{{ song.artists[0] }}
                 {% elif song.artists|length == 2 %}{{ song.artists[0] }} and {{ song.artists[1] }}
                 {% else %}

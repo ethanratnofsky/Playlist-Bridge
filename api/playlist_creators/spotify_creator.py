@@ -96,6 +96,7 @@ def search_spotify(song: Song) -> dict:
 
 def add_songs(playlist: Playlist, playlist_id: str) -> PlaylistCreatorResponse:
     uris = []  # List of Spotify URIs for songs in playlist
+    excluded_songs = []  # List of songs not found on Spotify
 
     # Iterate through given songs; search Spotify for their URIs
     for song in playlist.songs:
@@ -103,7 +104,7 @@ def add_songs(playlist: Playlist, playlist_id: str) -> PlaylistCreatorResponse:
         try:
             uris.append(search_results.get('tracks').get('items')[0].get('uri'))
         except IndexError:
-            playlist.excluded_songs.append(song)
+            excluded_songs.append(song)
 
     # POST request header fields
     headers = {
@@ -123,6 +124,7 @@ def add_songs(playlist: Playlist, playlist_id: str) -> PlaylistCreatorResponse:
 
     playlist_creator_response = PlaylistCreatorResponse()
     playlist_creator_response.playlist = playlist
+    playlist_creator_response.excluded_songs = excluded_songs
 
     return playlist_creator_response
 
