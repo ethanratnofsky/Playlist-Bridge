@@ -1,3 +1,13 @@
+.data {
+    padding-left: 0.25em;
+    font-weight: 200;
+}
+
 #summary {
-    margin: auto 25em;
+    margin: auto 25em 3em 25em;
+}
+
+#summaryTop {
+    margin: 0 auto;
+    text-align: center;
 }

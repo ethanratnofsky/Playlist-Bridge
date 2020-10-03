@@ -9,17 +9,17 @@
 {% block body %}
     <div class="header">
         <h1 class="textShadow">Bridge Summary</h1>
-        <p><i>Thanks for using Playlist Bridge!</i></p>
+        <p><i>Thank you for using Playlist Bridge!</i></p>
     </div>
 
     <div class="contentBox boxShadow" id="summary">
-        Playlist Name: {{ playlist.name }}<br>
-        Playlist Description: {{ playlist.description }}<br>
-        Playlist Creator: {{ playlist.creator }}<br>
-        Songs Added:
+        <p id="summaryTop">================== This is your Bridge Summary ==================</p>
+        <p>Playlist Name: <span class="data">{{ playlist.name }}</span></p>
+        <p>Playlist Description: <span class="data">{{ playlist.description }}</span></p>
+        <p>Songs Added:</p>
         <ol>
             {% for song in playlist.songs %}
-                <li>{{ song.title }} - {% if song.artists|length == 1 %}{{ song.artists[0] }}
+                <li><span class="data">{{ song.title }} - {% if song.artists|length == 1 %}{{ song.artists[0] }}
                 {% elif song.artists|length == 2 %}{{ song.artists[0] }} and {{ song.artists[1] }}
                 {% else %}
                     {% for artist in song.artists %}
@@ -27,14 +27,13 @@
                         {% else %}{{ artist }},
                         {% endif %}
                     {% endfor %}
-                {% endif %}</li>
+                {% endif %}</span></li>
             {% endfor %}
         </ol>
-        <br>
-        Songs Not Found:
+        <p>Songs Not Found:</p>
         <ol>
             {% for song in playlist.excluded_songs %}
-                <li>{{ song.title }} - {% if song.artists|length == 1 %}{{ song.artists[0] }}
+                <li><span class="data">{{ song.title }} - {% if song.artists|length == 1 %}{{ song.artists[0] }}
                 {% elif song.artists|length == 2 %}{{ song.artists[0] }} and {{ song.artists[1] }}
                 {% else %}
                     {% for artist in song.artists %}
@@ -42,7 +41,7 @@
                         {% else %}{{ artist }},
                         {% endif %}
                     {% endfor %}
-                {% endif %}</li>
+                {% endif %}</span></li>
             {% endfor %}
         </ol>
     </div>
