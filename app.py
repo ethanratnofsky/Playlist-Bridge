@@ -127,7 +127,7 @@ def bridge():
     # Open created playlist in new tab
     webbrowser.open(playlist_creator_response.playlist_url, new=2)
 
-    return render_template('bridge.html',
+    return render_template('summary.html',
                            songs_added=playlist_creator_response.songs_added,
                            songs_not_found=playlist_creator_response.songs_not_found,
                            playlist_url=playlist_creator_response.playlist_url)
@@ -167,7 +167,7 @@ def development():
     playlist_creator_response.songs_added.extend(songs)
     playlist_creator_response.songs_not_found.extend(songs)
 
-    return render_template('bridge.html',
+    return render_template('summary.html',
                            songs_added=playlist_creator_response.songs_added,
                            songs_not_found=playlist_creator_response.songs_not_found,
                            playlist_url=playlist_creator_response.playlist_url)

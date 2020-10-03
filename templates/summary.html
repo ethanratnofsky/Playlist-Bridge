@@ -8,11 +8,10 @@
 {% block body %}
     <div class="header">
         <h1 class="textShadow">Successful Bridge!</h1>
+        <p><i>Find your new playlist here: <a href={{ playlist_url }}>{{ playlist_url }}</a></i></p>
     </div>
 
     <div class="contentBox boxShadow">
-        Playlist URL: <a href={{ playlist_url }}>{{ playlist_url }}</a>
-        <br>
         Songs Added:
         <ol>
             {% for song in songs_added %}
