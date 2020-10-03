@@ -1,4 +1,5 @@
 import json
+import re
 from os import getenv
 
 import requests
@@ -62,14 +63,10 @@ def search_spotify(song: Song) -> dict:
 
     # Remove segment of song title that specifies featured artist(s)
     # This is necessary because the 'featuring' segment can break the search query functionality
-    # TODO: This may be easier to program with RegEx
-    # pattern = r"( [([]feat\. [^\])]+[)\]]) "
-    # if ' (feat. ' in song_title:
-    #     song_title = song_title[:song_title.find(' (feat. ')] + song_title[song_title.find(')', song_title.find(
-    #         ' (feat. ')) + 1:]
-    # elif ' [feat. ' in song_title:
-    #     song_title = song_title[:song_title.find(' [feat. ')] + song_title[song_title.find(']', song_title.find(
-    #         ' [feat. ')) + 1:]
+    pattern = re.compile(r"\s[(\[]feat\.\s[^])]+[)\]]")
+    match = pattern.search(song_title)
+    if match:
+        song_title = song_title.replace(match.group(), '')
 
     # GET request header field
     header = {
