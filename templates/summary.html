@@ -16,6 +16,7 @@
         <p id="summaryTop">================== This is your Bridge Summary ==================</p>
         <p>Playlist Name: <span class="data">{{ playlist.name }}</span></p>
         <p>Playlist Description: <span class="data">{{ playlist.description }}</span></p>
+        <p>Playlist URL: <a class="data" href="{{ playlist_url }}" target="_blank" rel="noreferrer noopener">{{ playlist_url }}</a></p>
         <p>Songs Added:</p>
         <ol>
             {% for song in playlist.songs %}
