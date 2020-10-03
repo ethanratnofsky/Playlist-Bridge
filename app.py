@@ -128,8 +128,7 @@ def bridge():
     webbrowser.open(playlist_creator_response.playlist_url, new=2)
 
     return render_template('summary.html',
-                           songs_added=playlist_creator_response.songs_added,
-                           songs_not_found=playlist_creator_response.songs_not_found,
+                           playlist=playlist_creator_response.playlist,
                            playlist_url=playlist_creator_response.playlist_url)
 
 

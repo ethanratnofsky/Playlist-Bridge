@@ -14,7 +14,7 @@
     <div class="contentBox boxShadow">
         Songs Added:
         <ol>
-            {% for song in songs_added %}
+            {% for song in playlist.songs %}
                 <li>{{ song.title }} - {% if song.artists|length == 1 %}{{ song.artists[0] }}
                 {% elif song.artists|length == 2 %}{{ song.artists[0] }} and {{ song.artists[1] }}
                 {% else %}
@@ -29,7 +29,7 @@
         <br>
         Songs Not Found:
         <ol>
-            {% for song in songs_not_found %}
+            {% for song in playlist.excluded_songs %}
                 <li>{{ song.title }} - {% if song.artists|length == 1 %}{{ song.artists[0] }}
                 {% elif song.artists|length == 2 %}{{ song.artists[0] }} and {{ song.artists[1] }}
                 {% else %}
