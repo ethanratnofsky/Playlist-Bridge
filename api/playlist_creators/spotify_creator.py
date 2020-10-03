@@ -111,9 +111,9 @@ def add_songs(playlist: Playlist, playlist_id: str) -> PlaylistCreatorResponse:
     }
 
     # POST request body parameters
-    # TODO: Spotify limits 100 songs per request
     payload = json.dumps(uris)
 
+    # TODO: Spotify Web API limits 100 songs per request
     response = requests.post(SPOTIFY_ADD_SONGS_URL.format(playlist_id=playlist_id), headers=headers, data=payload)
 
     # Check for non-success status code
