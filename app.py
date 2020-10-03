@@ -154,17 +154,17 @@ def development():
     song3.title = 'Song3'
     song3.artists = ['Artist1', 'Artist2', 'Artist3']
 
-    songs = [song1, song2, song3] * 5
+    songs = [song1, song2, song3]
 
     playlist = Playlist()
     playlist.name = 'Playlist Title'
     playlist.description = 'Test playlist.'
     playlist.creator = 'Developer'
-    playlist.songs = songs
-    playlist.excluded_songs = songs
+    playlist.songs = songs * 2
 
     playlist_creator_response.playlist = playlist
 
     return render_template('summary.html',
                            playlist=playlist_creator_response.playlist,
+                           excluded_songs=songs,
                            playlist_url=playlist_creator_response.playlist_url)
