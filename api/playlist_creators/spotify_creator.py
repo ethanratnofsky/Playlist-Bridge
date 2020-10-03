@@ -38,7 +38,7 @@ def create_playlist(user_id: str, playlist: Playlist) -> dict:
 
     # POST request body parameters
     payload = {
-        'name': playlist.title,
+        'name': playlist.name,
         'public': True,
         'collaborative': False,
         'description': playlist.description

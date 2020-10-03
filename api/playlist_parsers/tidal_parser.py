@@ -28,7 +28,7 @@ def parse(playlist_url: str) -> Playlist:
 
     # Parse title, description, and creator
     tidal_playlist = session.get_playlist(playlist_id)
-    playlist.title = tidal_playlist.name
+    playlist.name = tidal_playlist.name
     playlist.description = tidal_playlist.description
     playlist.creator = tidal_playlist.creator
 

@@ -164,7 +164,7 @@ def development():
     songs = [song1, song2, song3] * 5
 
     playlist = Playlist()
-    playlist.title = 'Playlist Title'
+    playlist.name = 'Playlist Title'
     playlist.description = 'Test playlist.'
     playlist.creator = 'Developer'
     playlist.songs = songs

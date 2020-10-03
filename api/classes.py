@@ -7,7 +7,7 @@ class Song:
 
 class Playlist:
     def __init__(self):
-        self.title = ''
+        self.name = ''
         self.description = ''
         self.creator = ''
         self.songs = []
