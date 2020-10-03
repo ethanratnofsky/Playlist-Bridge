@@ -157,8 +157,10 @@ def development():
     songs = [song1, song2, song3]
 
     playlist = Playlist()
-    playlist.name = 'Playlist Title'
-    playlist.description = 'Test playlist.'
+    playlist.src_service = 'Source'
+    playlist.dest_service = 'Destination'
+    playlist.name = 'Name'
+    playlist.description = 'This is a sample playlist description.'
     playlist.creator = 'Developer'
     playlist.songs = songs * 3
 

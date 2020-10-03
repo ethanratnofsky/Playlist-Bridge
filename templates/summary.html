@@ -13,11 +13,11 @@
     </div>
 
     <div class="contentBox boxShadow" id="summary">
-        <p id="summaryTop">=============== {{ 100 - ((excluded_songs|length / playlist.songs|length) * 100)|int }}% of your playlist was successfully bridged! ===============</p>
+        <p id="summaryTop">{{ '=' * 25 }} {{ playlist.src_service }} &rarr; {{ playlist.dest_service }} {{ '=' * 25 }}</p>
         <p>Playlist Name: <span class="data">{{ playlist.name }}</span></p>
         <p>Playlist Description: <span class="data">{{ playlist.description }}</span></p>
         <p>Playlist URL: <a class="data" href="{{ playlist_url }}" target="_blank" rel="noreferrer noopener">{{ playlist_url }}</a></p>
-        <p class="listLabel">Playlist Song(s):</p>
+        <p class="listLabel">Full Playlist:</p>
         <ol id="playlistSongs">
             {% for song in playlist.songs %}
                 <li><span class="data">{{ song.title }} - {% if song.artists|length == 1 %}{{ song.artists[0] }}

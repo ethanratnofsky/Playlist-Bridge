@@ -7,6 +7,8 @@ class Song:
 
 class Playlist:
     def __init__(self):
+        self.src_service = ''
+        self.dest_service = ''
         self.name = ''
         self.description = ''
         self.creator = ''

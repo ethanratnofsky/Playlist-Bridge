@@ -7,6 +7,8 @@ from .playlist_parsers import tidal_parser
 
 def bridge(src: str, dest: str, playlist_url: str) -> PlaylistCreatorResponse:
     playlist = Playlist()
+    playlist.src_service = src
+    playlist.dest_service = dest
 
     # Parse playlist from source service
     if src == 'TIDAL':
