@@ -160,7 +160,7 @@ def development():
     playlist.name = 'Playlist Title'
     playlist.description = 'Test playlist.'
     playlist.creator = 'Developer'
-    playlist.songs = songs * 2
+    playlist.songs = songs * 3
 
     playlist_creator_response.playlist = playlist
 
