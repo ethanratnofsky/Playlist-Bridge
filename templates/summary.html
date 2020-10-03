@@ -12,7 +12,9 @@
     </div>
 
     <div class="contentBox boxShadow">
-        Playlist Title
+        Playlist Name: {{ playlist.name }}<br>
+        Playlist Description: {{ playlist.description }}<br>
+        Playlist Creator: {{ playlist.creator }}<br>
         Songs Added:
         <ol>
             {% for song in playlist.songs %}
