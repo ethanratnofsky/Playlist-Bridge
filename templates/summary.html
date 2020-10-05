@@ -33,11 +33,6 @@
                             {% endfor %}
                         {% endif %}
                     </span>
-                {% if song in excluded_songs %}
-                    <span class="notFound">
-                        (not found on {{ playlist.dest_service }})
-                    </span>
-                {% endif %}
                 </li>
             {% endfor %}
         </ol>
