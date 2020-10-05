@@ -14,6 +14,7 @@
 
     <div class="contentBox boxShadow" id="summary">
         <p id="summaryTop">{{ '=' * 25 }} {{ playlist.src_service }} &rarr; {{ playlist.dest_service }} {{ '=' * 25 }}</p>
+        <div class="errorMessage"><b>WARNING! </b>{{ excluded_songs|length }} of {{ playlist.songs|length }} songs were not added to the new playlist because they were not found on {{ playlist.dest_service }}. These songs have been highlighted below.</div>
         <p>Playlist Name: <span class="data">{{ playlist.name }}</span></p>
         <p>Playlist Description: <span class="data">{{ playlist.description }}</span></p>
         <p>Playlist URL: <a class="data" href="{{ playlist_url }}" target="_blank" rel="noreferrer noopener">{{ playlist_url }}</a></p>
