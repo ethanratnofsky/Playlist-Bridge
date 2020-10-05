@@ -104,8 +104,20 @@ def spotify_callback():
     return redirect(url_for('bridge', session_id=session.get('id')))
 
 
-@app.route('/bridge')
-def bridge():
+@app.route('/submit', methods=['POST'])
+def submit():
+    # Save form data to session
+    session['form_data'] = request.form
+
+    if session.get('form_data').get('dest_service') == 'Spotify':
+        # If destination service is Spotify, we need authorization
+        return redirect(url_for('auth_spotify', session_id=session.get('id')))
+    else:
+        return redirect(url_for('bridge', session_id=session.get('id')))
+
+
+@app.route('/summary')
+def summary():
     # Verify session ID
     session_id = request.args.get('session_id')
     if session_id != session.get('id'):
@@ -124,18 +136,6 @@ def bridge():
                            playlist=playlist_creator_response.playlist,
                            excluded_songs=playlist_creator_response.excluded_songs,
                            playlist_url=playlist_creator_response.playlist_url)
-
-
-@app.route('/submit', methods=['POST'])
-def submit():
-    # Save form data to session
-    session['form_data'] = request.form
-
-    if session.get('form_data').get('dest_service') == 'Spotify':
-        # If destination service is Spotify, we need authorization
-        return redirect(url_for('auth_spotify', session_id=session.get('id')))
-    else:
-        return redirect(url_for('bridge', session_id=session.get('id')))
 
 
 @app.route('/development')
