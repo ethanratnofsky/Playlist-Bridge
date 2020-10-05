@@ -104,27 +104,40 @@ def add_songs(playlist: Playlist, playlist_id: str) -> PlaylistCreatorResponse:
         except IndexError:
             excluded_songs.append(song)
 
+    playlist_creator_response = PlaylistCreatorResponse()
+    playlist_creator_response.playlist = playlist
+    playlist_creator_response.excluded_songs = excluded_songs
+
     # POST request header fields
     headers = {
         'Authorization': 'Bearer ' + ACCESS_TOKEN,
         'Content-Type': 'application/json'
     }
 
-    # POST request body parameters
-    payload = json.dumps(uris)
+    # Make request to Spotify API endpoint to add songs (100 per request limit)
+    temp_uris = []  # List to store 100 URIs at a time
+    for uri in uris:
+        temp_uris.append(uri)
 
-    # TODO: Spotify Web API limits 100 songs per request
-    response = requests.post(SPOTIFY_ADD_SONGS_URL.format(playlist_id=playlist_id), headers=headers, data=payload)
+        # Check if songs-per-request limit (100) is reached or end of URIs list is reached
+        if (uri is uris[-1]) or (len(temp_uris) == 100):
+            # If songs-per-request limit or end of URIs list reached, make request with 100 temp allocated song URIs
 
-    # Check for non-success status code
-    if response.status_code != 201:
-        print('ERROR: Could not add songs to Spotify playlist.')  # TODO: Log this as an error
-        print(response.json().get('error').get('message'))
-        abort(response.status_code)
+            # POST request body parameters
+            payload = json.dumps(temp_uris)
 
-    playlist_creator_response = PlaylistCreatorResponse()
-    playlist_creator_response.playlist = playlist
-    playlist_creator_response.excluded_songs = excluded_songs
+            # Clear temp_uris list
+            temp_uris.clear()
+
+            # Make request for 100 songs to be added
+            response = requests.post(SPOTIFY_ADD_SONGS_URL.format(playlist_id=playlist_id), headers=headers,
+                                     data=payload)
+
+            # Check for non-success status code
+            if response.status_code != 201:
+                print('ERROR: Could not add songs to Spotify playlist.')  # TODO: Log this as an error
+                print(response.json().get('error').get('message'))
+                abort(response.status_code)
 
     return playlist_creator_response
 
