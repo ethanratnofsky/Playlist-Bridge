@@ -27,7 +27,7 @@ app.jinja_options = {
 
 @app.route('/')
 def index():
-    # Clear current session data and get new session id
+    # Create new session
     session.clear()
     session['id'] = secrets.token_urlsafe(16)
 
@@ -41,8 +41,8 @@ def auth_spotify():
 
     # Verify session ID
     if session_id != session.get('id'):
-        print('ERROR: Session ID mismatch.')  # TODO: Log this as an error
-        abort(400)  # 400 Bad Request
+        # If session ID is mismatched, redirect to index
+        return redirect(url_for('index'))
 
     # Generate and remember random URL-safe string to prevent Cross-Site Request Forgery
     state = secrets.token_urlsafe(16)
@@ -121,8 +121,8 @@ def loading():
     # Verify session ID
     session_id = request.args.get('session_id')
     if session_id != session.get('id'):
-        print('ERROR: Session ID mismatch.')  # TODO: Log this as an error
-        abort(400)  # 400 Bad Request
+        # If session ID is mismatched, redirect to index
+        return redirect(url_for('index'))
 
     return render_template('loading.html', session_id=session_id)
 
@@ -132,8 +132,8 @@ def summary():
     # Verify session ID
     session_id = request.args.get('session_id')
     if session_id != session.get('id'):
-        print('ERROR: Session ID mismatch.')  # TODO: Log this as an error
-        abort(400)  # 400 Bad Request
+        # If session ID is mismatched, redirect to index
+        return redirect(url_for('index'))
 
     # Get form data
     src_service = session.get('form_data').get('src_service')
