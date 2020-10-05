@@ -154,8 +154,20 @@ def development():
     song3 = Song()
     song3.title = 'Song3'
     song3.artists = ['Artist1', 'Artist2', 'Artist3']
+    song4 = Song()
+    song4.title = 'Song4'
+    song4.artists = ['Artist1', 'Artist2', 'Artist3', 'Artist4']
+    song5 = Song()
+    song5.title = 'Song5'
+    song5.artists = ['Artist5']
+    song6 = Song()
+    song6.title = 'Song6'
+    song6.artists = ['Artist6']
+    song7 = Song()
+    song7.title = 'Song7'
+    song7.artists = ['Artist7']
 
-    songs = [song1, song2, song3]
+    songs = [song1, song2, song3, song4, song5, song6, song7]
 
     playlist = Playlist()
     playlist.src_service = 'Source'
@@ -163,10 +175,10 @@ def development():
     playlist.name = 'Name'
     playlist.description = 'This is a sample playlist description.'
     playlist.creator = 'Developer'
-    playlist.songs = songs * 3
+    playlist.songs = songs
 
     playlist_creator_response.playlist = playlist
-    playlist_creator_response.excluded_songs = [song1]
+    playlist_creator_response.excluded_songs = [song3, song5]
 
     return render_template('summary.html',
                            playlist=playlist_creator_response.playlist,
