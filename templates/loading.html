@@ -1,18 +1,44 @@
-{% extends 'base.html' %}
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Bridging... - Playlist Bridge</title>
 
-{% block title %}Bridging...{% endblock %}
+        <meta charset="UTF-8">
+        <meta name="keywords" content="playlist, bridge, music, streaming, service, convert, songs">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
 
-{% block head %}
-    <link rel="stylesheet" type="text/css" href="/static/css/loading.css">
-{% endblock %}
+        <!-- CSS -->
+        <link rel="stylesheet" type="text/css" href="/static/css/colors.css">
+        <link rel="stylesheet" type="text/css" href="/static/css/theme.css">
+        <link rel="stylesheet" type="text/css" href="/static/css/base.css">
+        <link rel="stylesheet" type="text/css" href="/static/css/loading.css">
 
-{% block body %}
-    <div class="header">
-        <h1 class="textShadow">Bridging Playlist...</h1>
-        <p><i>This may take a while, depending on how big your playlist is.</i></p>
-    </div>
-{% endblock %}
+        <!-- Fonts -->
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lobster&display=swap">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700;800&display=swap">
 
-{% block scripts %}
-    <script> window.location.replace('{{ url_for('summary') }}?session_id={{ session_id }}'); </script>
-{% endblock %}
+        <!-- Favicon -->
+        <link rel="apple-touch-icon" sizes="180x180" href="/static/favicon/apple-touch-icon.png">
+        <link rel="icon" type="image/png" sizes="32x32" href="/static/favicon/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/static/favicon/favicon-16x16.png">
+        <link rel="manifest" href="/static/favicon/site.webmanifest">
+
+        {% block head %}
+        {% endblock %}
+    </head>
+
+    <body>
+        <div class="header">
+            <h1 class="textShadow">Bridging Playlist...</h1>
+            <p><i>This may take a while, depending on how big your playlist is.</i></p>
+        </div>
+
+        <footer id="main-footer">
+            <p id="copyright">&copy; 2020 Playlist Bridge</p>
+            <p id="bg-photo-credit">Photo by <a target=_blank href="https://unsplash.com/@alexazabache?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText">Alex Azabache</a> on <a target=_blank href="https://unsplash.com/s/photos/bridge?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText">Unsplash</a></p>
+        </footer>
+
+        <script src="/static/js/jquery-3.5.1.min.js"></script>
+        <script> window.location.replace('{{ url_for('summary') }}?session_id={{ session_id }}'); </script>
+    </body>
+</html>
