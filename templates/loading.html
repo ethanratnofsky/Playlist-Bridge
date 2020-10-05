@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+
+{% block title %}Bridging...{% endblock %}
+
+{% block head %}
+    <link rel="stylesheet" type="text/css" href="/static/css/loading.css">
+{% endblock %}
+
+{% block body %}
+    <div class="header">
+        <h1 class="textShadow">Bridging Playlist...</h1>
+        <p><i>This may take a while, depending on how big your playlist is.</i></p>
+    </div>
+{% endblock %}
+
+{% block scripts %}
+    <script> window.location.replace('{{ url_for('summary') }}?session_id={{ session_id }}'); </script>
+{% endblock %}

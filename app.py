@@ -101,7 +101,7 @@ def spotify_callback():
     # Save tokens to session
     session['spotify_tokens'] = tokens_response.json()
 
-    return redirect(url_for('bridge', session_id=session.get('id')))
+    return redirect(url_for('loading', session_id=session.get('id')))
 
 
 @app.route('/submit', methods=['POST'])
@@ -113,7 +113,18 @@ def submit():
         # If destination service is Spotify, we need authorization
         return redirect(url_for('auth_spotify', session_id=session.get('id')))
     else:
-        return redirect(url_for('bridge', session_id=session.get('id')))
+        return redirect(url_for('loading', session_id=session.get('id')))
+
+
+@app.route('/loading')
+def loading():
+    # Verify session ID
+    session_id = request.args.get('session_id')
+    if session_id != session.get('id'):
+        print('ERROR: Session ID mismatch.')  # TODO: Log this as an error
+        abort(400)  # 400 Bad Request
+
+    return render_template('loading.html', session_id=session_id)
 
 
 @app.route('/summary')
