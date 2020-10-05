@@ -178,7 +178,7 @@ def development():
     playlist.songs = songs
 
     playlist_creator_response.playlist = playlist
-    playlist_creator_response.excluded_songs = []
+    playlist_creator_response.excluded_songs = [song3, song5]
 
     return render_template('summary.html',
                            playlist=playlist_creator_response.playlist,
