@@ -24,3 +24,14 @@ ol {
     margin: 0 auto;
     text-align: center;
 }
+
+#toTopLink {
+    margin-bottom: 0;
+    font-weight: 200;
+    font-size: smaller;
+    text-align: center;
+}
+
+#toTopLink > a {
+    color: var(--secondary-color);
+}
