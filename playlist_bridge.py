@@ -4,7 +4,7 @@ from urllib.parse import urlencode
 
 import requests
 from flask import abort, Flask, redirect, render_template, request, session, url_for
-from flask_talisman import Talisman
+from flask_talisman import Talisman, GOOGLE_CSP_POLICY
 
 from api import bridger
 
@@ -19,7 +19,7 @@ REDIRECT_URI = getenv('REDIRECT_URI')
 
 # Initialize Flask app
 app = Flask(__name__)
-Talisman(app)  # Handles setting HTTP headers that can help protect against a few common web application security issues
+Talisman(app, content_security_policy=GOOGLE_CSP_POLICY)  # Handles setting HTTP headers
 app.secret_key = getenv('SECRET_KEY')
 app.jinja_options = {
     'trim_blocks': True,
