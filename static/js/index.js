@@ -1,4 +1,4 @@
-$(document).ready(function(){
+$(document).ready(function () {
     $("#srcService").change(function () {
         $("#srcServiceIcon").attr({
             src: $(this).find("option:selected").data("img-src"),
