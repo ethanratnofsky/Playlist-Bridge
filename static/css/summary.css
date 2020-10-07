@@ -1,6 +1,6 @@
 .data {
     padding-left: 0.25em;
-    font-weight: 200;
+    font-weight: 300;
 }
 
 a.data {
@@ -27,7 +27,7 @@ ol {
 
 #toTopLink {
     margin-bottom: 0;
-    font-weight: 200;
+    font-weight: 300;
     font-size: smaller;
     text-align: center;
 }
