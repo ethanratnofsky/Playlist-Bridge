@@ -1,7 +1,7 @@
 # Playlist-Bridge
 Playlist-Brdige is a web application built to convert music playlists from one streaming service to another.
 
-[index.html](/static/templates/index.html)
+[[index.html]](/static/templates/index.html)
 ![Screenshot of Playlist Bridge homepage](/screenshots/playlist-bridge_index.png)
 
 # Inspiration
