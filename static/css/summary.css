@@ -7,7 +7,7 @@ a.data {
     color: var(--secondary-color);
 }
 
-p.listLabel {
+.listLabel {
     margin-bottom: 0.5em;
 }
 
@@ -17,7 +17,8 @@ ol {
 }
 
 #summary {
-    margin: auto 20em 3em 20em;
+    margin: auto auto 3em;
+    width: 70%;
 }
 
 #summaryTop {
