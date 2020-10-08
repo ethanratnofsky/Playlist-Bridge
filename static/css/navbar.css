@@ -1,0 +1,25 @@
+.navbar-brand {
+    font-size: 40px
+}
+
+.nav-item {
+    font-size: 16px;
+    font-weight: 400;
+    letter-spacing: 1px;
+}
+
+.navbar-dark .navbar-nav .nav-link {
+    color: rgb(255,255,255);
+}
+
+.navbar-dark .navbar-nav .nav-link:hover {
+    color: rgb(221, 221, 221);
+}
+
+.navbar-toggler {
+    background-color: white;
+}
+
+.navbar-toggler-icon {
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' width='30' height='30' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%280, 0, 0, 0.5%29' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e") !important;
+}

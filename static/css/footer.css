@@ -1,0 +1,14 @@
+.footer {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    font-size: smaller;
+    font-weight: 300;
+    color: white;
+    padding: 0.75rem 0.25rem;
+}
+
+.footer span a {
+    color: white;
+    text-decoration: underline;
+}
