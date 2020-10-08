@@ -1,0 +1,29 @@
+body {
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-image: url("/static/images/austria_bridge.jpg");
+    background-position: center 75%;
+
+    font-family: 'Open Sans', sans-serif;
+}
+
+.font-lobster {
+    font-family: 'Lobster', cursive;
+}
+
+.font-arial-black {
+    font-family: 'Arial Black', 'Gadget', sans-serif;
+}
+
+.font-open-sans {
+    font-family: 'Open Sans', sans-serif;
+}
+
+.text-shadow {
+    text-shadow: 0 0 5px black;
+}
+
+.box-shadow {
+    box-shadow: 0 0 5px black;
+}
