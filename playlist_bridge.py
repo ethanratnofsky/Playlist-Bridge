@@ -4,7 +4,7 @@ from urllib.parse import urlencode
 
 import requests
 from flask import abort, Flask, redirect, render_template, request, session, url_for
-from flask_talisman import Talisman, GOOGLE_CSP_POLICY
+from flask_talisman import Talisman
 
 from api import bridger
 
@@ -19,12 +19,28 @@ REDIRECT_URI = getenv('REDIRECT_URI')
 
 # Initialize Flask app
 app = Flask(__name__)
-Talisman(app, content_security_policy=GOOGLE_CSP_POLICY)  # Handles setting HTTP headers
 app.secret_key = getenv('SECRET_KEY')
 app.jinja_options = {
     'trim_blocks': True,
     'lstrip_blocks': True
 }
+
+# Wrap app with Flask Talisman (HTTPS)
+csp = {
+    'default-src': [
+        '\'self\'',
+        'stackpath.bootstrapcdn.com',  # Bootstrap CDN
+        'code.jquery.com',  # jQuery
+        'cdn.jsdelivr.net',  # Popper.js
+        'fonts.googleapis.com',  # Google Fonts
+        'fonts.gstatic.com'  # Google Fonts
+    ],
+    'img-src': [
+        '\'self\'',
+        'data: image/svg+xml'
+    ]
+}
+talisman = Talisman(app, content_security_policy=csp)
 
 
 @app.route('/')
@@ -33,7 +49,7 @@ def index():
     session.clear()
     session['id'] = secrets.token_urlsafe(16)
 
-    return render_template('index.html')
+    return render_template('index2.html')
 
 
 @app.route('/auth-spotify')
