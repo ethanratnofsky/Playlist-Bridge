@@ -28,3 +28,7 @@ body {
 .box-shadow {
     box-shadow: 0 0 5px black;
 }
+
+.drop-shadow {
+    filter: drop-shadow(0 0 2px black);
+}
