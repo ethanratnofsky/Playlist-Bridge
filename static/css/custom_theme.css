@@ -42,6 +42,10 @@ body {
     background-color: #333333 !important;
 }
 
+.btn-primary {
+    background-color: #258af6;
+}
+
 .border-darker {
     border-color: #222222 !important;
 }
