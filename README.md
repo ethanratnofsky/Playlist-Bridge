@@ -1,7 +1,6 @@
 # Playlist Bridge
 Playlist Bridge is a web application built to convert music playlists from one streaming service to another.
 
-[[index.html]](/templates/index.html)
 ![Screenshot of Playlist Bridge homepage](/screenshots/playlist-bridge-index.png)
 
 # Inspiration
