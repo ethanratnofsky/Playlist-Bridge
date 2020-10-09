@@ -33,3 +33,11 @@ body {
 .drop-shadow {
     filter: drop-shadow(0 0 2px black);
 }
+
+.bg-dark {
+    background-color: #333333 !important;
+}
+
+.border-darker {
+    border-color: #222222 !important;
+}
