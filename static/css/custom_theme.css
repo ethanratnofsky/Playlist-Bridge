@@ -22,6 +22,10 @@ body {
     font-family: 'Open Sans', sans-serif;
 }
 
+.font-weight-bold {
+    font-weight: 600 !important;
+}
+
 .text-shadow {
     text-shadow: 0 0 5px black;
 }
