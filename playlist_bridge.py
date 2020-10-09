@@ -30,6 +30,7 @@ csp = {
     'default-src': [
         '\'self\'',
         'stackpath.bootstrapcdn.com',  # Bootstrap CDN
+        'bootstrap-extension.com',  # Bootstrap Extension
         'code.jquery.com',  # jQuery
         'cdn.jsdelivr.net',  # Popper.js
         'fonts.googleapis.com',  # Google Fonts
@@ -49,7 +50,7 @@ def index():
     session.clear()
     session['id'] = secrets.token_urlsafe(16)
 
-    return render_template('index2.html')
+    return render_template('index.html')
 
 
 @app.route('/auth-spotify')
@@ -142,7 +143,7 @@ def loading():
         # If session ID is mismatched, redirect to index
         return redirect(url_for('index'))
 
-    return render_template('loading.html', session_id=session_id)
+    return render_template('old_loading.html', session_id=session_id)
 
 
 @app.route('/summary')
@@ -161,7 +162,7 @@ def summary():
     # Bridge!
     playlist_creator_response = bridger.bridge(src_service, dest_service, playlist_url)
 
-    return render_template('summary.html',
+    return render_template('old_summary.html',
                            playlist=playlist_creator_response.playlist,
                            excluded_songs=playlist_creator_response.excluded_songs,
                            playlist_url=playlist_creator_response.playlist_url)
@@ -209,7 +210,7 @@ def development():
     playlist_creator_response.playlist = playlist
     playlist_creator_response.excluded_songs = [song3, song5]
 
-    return render_template('summary.html',
+    return render_template('old_summary.html',
                            playlist=playlist_creator_response.playlist,
                            excluded_songs=playlist_creator_response.excluded_songs,
                            playlist_url=playlist_creator_response.playlist_url)
