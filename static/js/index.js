@@ -1,13 +1,13 @@
 $(document).ready(function () {
-    $("#srcService").change(function () {
-        $("#srcServiceIcon").attr({
+    $("#src-service").change(function () {
+        $("#src-service-icon").attr({
             src: $(this).find("option:selected").data("img-src"),
             alt: $(this).find("option:selected").data("img-alt")
         });
     });
 
-    $("#destService").change(function () {
-        $("#destServiceIcon").attr({
+    $("#dest-service").change(function () {
+        $("#dest-service-icon").attr({
             src: $(this).find("option:selected").data("img-src"),
             alt: $(this).find("option:selected").data("img-alt")
         });
