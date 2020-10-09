@@ -10,13 +10,14 @@ This web application was inspired by the idea of sharing music playlists made on
 # Usage
 The production version of the web application is current live at https://playlistbridge.herokuapp.com!
 
-# Languages and Libraries
+# Languages, Libraries, and Frameworks
 * Python
   * [Flask](https://flask.palletsprojects.com/en/1.1.x/) micro web framework
   * ...all Python dependencies can be found in [requirements.txt](/requirements.txt).
 * HTML
   * [Jinja2](https://jinja.palletsprojects.com/en/2.11.x/) (from Flask)
 * CSS
+  * [Bootstrap 4](https://getbootstrap.com/)
 * JavaScript
   * [jQuery](https://jquery.com/) (from Flask)
 
