@@ -4,18 +4,66 @@
 
 {% block head %}
     <meta name="description" content="Share your playlists without having to worry about gaps between music streaming services!">
-{#    <link rel="stylesheet" type="text/css" href="/static/css/index.css">#}
 {% endblock %}
 
 {% block body %}
     {% include "navbar.html" %}
 
-    <div class="container mt-3 mb-5">
-        <div class="row-cols-1 text-center font-lobster font-weight-normal display-4 text-shadow">
-            Playlist Bridge
+    <div class="container-fluid mt-3 mb-5">
+        <!-- Header -->
+        <div class="row text-center custom-font-lobster font-weight-normal display-4 custom-text-shadow">
+            <div class="col-12">Playlist Bridge</div>
         </div>
-        <div class="row-cols-1 py-2 text-center font-open-sans font-italic font-weight-bold text-shadow">
-            Bridge the gap between music streaming services!
+        <!-- Caption -->
+        <div class="row py-3 text-center custom-font-open-sans font-italic custom-text-shadow">
+            <div class="col-12">Bridge the gap between music streaming services!</div>
         </div>
+
+        <form action="{{ url_for('submit') }}" method="POST">
+            <div class="row justify-content-center mt-4">
+                <!-- Source Service -->
+                <div class="col-7 col-sm-5 col-md-4 col-lg-3 col-xl-2">
+                    <div class="container custom-bg-dark border custom-border-darker custom-rounded custom-box-shadow text-center py-3">
+                        <label for="src-service" class="row-cols-1 mb-0 d-block custom-text-shadow">Source Service:</label>
+                        <img class="my-4" id="src-service-icon" src="/static/images/question_mark.svg" alt="No Service Selected">
+                        <select class="custom-select-sm bg-white custom-rounded d-block w-50 mx-auto text-center custom-box-shadow" id="src-service" name="src_service" required>
+                            <option data-img-src="/static/images/question_mark.svg" data-img-alt="No Service Selected" value="" selected></option>
+                            <option data-img-src="/static/images/tidal_icon.svg" data-img-alt="TIDAL Icon" value="TIDAL">TIDAL</option>
+{#                            <option data-img-src="/static/images/spotify_icon.svg" data-img-alt="Spotify Icon" value="Spotify">Spotify</option>#}
+{#                            <option data-img-src="/static/images/itunes_icon.svg" data-img-alt="Apple Music Icon" value="Apple Music">Apple Music</option>#}
+                        </select>
+                    </div>
+                </div>
+                <!-- Arrow -->
+                <img class="rotate-sm-l-90 mx-5 px-5 my-2 mx-sm-auto my-sm-0 px-sm-0 mx-md-5 custom-drop-shadow" src="/static/images/arrow_icon.svg" alt="&rarr;">
+                <!-- Destination Service -->
+                <div class="col-7 col-sm-5 col-md-4 col-lg-3 col-xl-2">
+                    <div class="container custom-bg-dark border custom-border-darker custom-rounded custom-box-shadow text-center py-3">
+                        <label for="dest-service" class="row-cols-1 mb-0 d-block custom-text-shadow">Destination Service:</label>
+                        <img class="my-4" id="dest-service-icon" src="/static/images/question_mark.svg" alt="No Service Selected">
+                        <select class="custom-select-sm bg-white custom-rounded d-block w-50 mx-auto text-center custom-box-shadow" id="dest-service" name="dest_service" required>
+                            <option data-img-src="/static/images/question_mark.svg" data-img-alt="No Service Selected" value="" selected></option>
+                            <option data-img-src="/static/images/spotify_icon.svg" data-img-alt="Spotify Icon" value="Spotify">Spotify</option>
+{#                            <option data-img-src="/static/images/itunes_icon.svg" data-img-alt="Apple Music Icon" value="Apple Music">Apple Music</option>#}
+                        </select>
+                    </div>
+                </div>
+            </div>
+            <div class="row justify-content-center">
+                <!-- Source Playlist URL -->
+                <div class="col-sm-7 col-md-6 col-lg-5 col-xl-4 col-xxl-3 text-center">
+                    <div class="container custom-bg-dark border custom-border-darker custom-rounded custom-box-shadow my-4 px-3 py-1">
+                        <label for="src-url" class="custom-text-shadow mt-2">Source Playlist URL: </label>
+                        <input id="src-url" class="form-group input-group mb-3 custom-url-input" name="playlist_url" type="url" placeholder="Enter Playlist URL" required>
+                    </div>
+                </div>
+            </div>
+            <div class="row justify-content-center">
+                <!-- Bridge Button -->
+                <button class="btn btn-primary custom-font-weight-bold display-9 custom-box-shadow px-4 mb-3 mb-sm-0" type="submit">Bridge</button>
+            </div>
+        </form>
     </div>
+
+    {% include "footer.html" %}
 {% endblock %}
