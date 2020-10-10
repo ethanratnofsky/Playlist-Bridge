@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+
+{% block title %}Bridging...{% endblock %}
+
+{% block head %}
+    <meta id="meta-data" data-summary_url="{{ url_for('summary') }}" data-session_id="{{ session_id }}">
+{% endblock %}
+
+{% block body %}
+    <div class="row min-vh-100 align-items-center">
+        <div class="w-100 justify-content-center text-center">
+            <div class="col-12 py-2 custom-font-lobster font-weight-normal display-4 custom-text-shadow">Bridging Playlist...</div>
+            <div class="col-12 py-2 custom-font-open-sans font-italic custom-text-shadow">This may take a while depending on how big your playlist is.</div>
+        </div>
+    </div>
+
+    <div class="fixed-bottom">
+        {% include 'footer.html' %}
+    </div>
+{% endblock %}
+
+{% block scripts %}
+    <script type="text/javascript" src="/static/js/loading.js"></script>
+{% endblock %}

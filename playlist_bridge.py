@@ -143,7 +143,7 @@ def loading():
         # If session ID is mismatched, redirect to index
         return redirect(url_for('index'))
 
-    return render_template('old_loading.html', session_id=session_id)
+    return render_template('loading.html', session_id=session_id)
 
 
 @app.route('/summary')
