@@ -1,0 +1,56 @@
+{% extends 'base.html' %}
+
+{% block title %}Bridge Summary{% endblock %}
+
+{% block body %}
+    <a name="top"></a>
+    {% include "navbar.html" %}
+
+    <div class="container-fluid mt-3 mb-5">
+        <!-- Header -->
+        <div class="row text-center custom-font-lobster font-weight-normal display-4 custom-text-shadow">
+            <div class="col-12">Bridge Summary</div>
+        </div>
+        <!-- Caption -->
+        <div class="row py-3 text-center custom-font-open-sans font-italic custom-text-shadow">
+            <div class="col-12">Thank you for using Playlist Bridge!</div>
+        </div>
+        <!-- Warning -->
+        {% if excluded_songs|length > 0 %}
+            <div class="col-sm-10 col-md-8 container alert custom-alert-danger" role="alert">
+                WARNING! <span class="font-weight-light">{{ excluded_songs|length }} of {{ playlist.songs|length }} songs were not added to the new playlist because they were not found on {{ playlist.dest_service }}. These songs have been highlighted below.</span>
+            </div>
+        {% endif %}
+        <!-- Summary -->
+        <div class="col-sm-10 col-md-8 container custom-bg-dark border custom-border-darker custom-rounded custom-box-shadow">
+            <div class="text-center py-2">{{ playlist.dest_service }} &rarr; {{ playlist.src_service }}</div>
+            <p>Playlist Name: <span class="font-weight-light">{{ playlist.name }}</span></p>
+            <p>Playlist Description: <span class="font-weight-light">{{ playlist.description }}</span></p>
+            <p>Playlist URL: <a class="font-weight-light text-white" href="{{ playlist_url }}" target="_blank" rel="noreferrer noopener"><u>{{ playlist_url }}</u></a></p>
+            <div>Playlist Song(s):
+                <ol class="font-weight-light">
+                    {% for song in playlist.songs %}
+                        <li {% if song in excluded_songs %}class="custom-text-danger"{% endif %}>
+                            <span class="data">{{ song.title }} by
+                                {% if song.artists|length == 1 %}{{ song.artists[0] }}
+                                {% elif song.artists|length == 2 %}{{ song.artists[0] }} and {{ song.artists[1] }}
+                                {% else %}
+                                    {% for artist in song.artists %}
+                                        {% if loop.last %}and {{ artist }}
+                                        {% else %}{{ artist }},
+                                        {% endif %}
+                                    {% endfor %}
+                                {% endif %}
+                            </span>
+                        </li>
+                    {% endfor %}
+                </ol>
+            </div>
+            <div class="text-center py-2">
+                <a class="text-white small font-weight-light" href="#top"><u>Back to top</u></a>
+            </div>
+        </div>
+    </div>
+
+    {% include "footer.html" %}
+{% endblock %}

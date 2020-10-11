@@ -162,7 +162,7 @@ def summary():
     # Bridge!
     playlist_creator_response = bridger.bridge(src_service, dest_service, playlist_url)
 
-    return render_template('old_summary.html',
+    return render_template('summary.html',
                            playlist=playlist_creator_response.playlist,
                            excluded_songs=playlist_creator_response.excluded_songs,
                            playlist_url=playlist_creator_response.playlist_url)
@@ -210,7 +210,7 @@ def development():
     playlist_creator_response.playlist = playlist
     playlist_creator_response.excluded_songs = [song3, song5]
 
-    return render_template('old_summary.html',
+    return render_template('summary.html',
                            playlist=playlist_creator_response.playlist,
                            excluded_songs=playlist_creator_response.excluded_songs,
                            playlist_url=playlist_creator_response.playlist_url)
