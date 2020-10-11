@@ -168,49 +168,49 @@ def summary():
                            playlist_url=playlist_creator_response.playlist_url)
 
 
-# @app.route('/development')
-# def development():
-#     from api.classes import Playlist, PlaylistCreatorResponse, Song
-#
-#     playlist_creator_response = PlaylistCreatorResponse()
-#     playlist_creator_response.playlist_url = 'https://google.com'
-#
-#     song1 = Song()
-#     song1.title = 'Song1'
-#     song1.artists = ['Artist1']
-#     song2 = Song()
-#     song2.title = 'Song2'
-#     song2.artists = ['Artist1', 'Artist2']
-#     song3 = Song()
-#     song3.title = 'Song3'
-#     song3.artists = ['Artist1', 'Artist2', 'Artist3']
-#     song4 = Song()
-#     song4.title = 'Song4'
-#     song4.artists = ['Artist1', 'Artist2', 'Artist3', 'Artist4']
-#     song5 = Song()
-#     song5.title = 'Song5'
-#     song5.artists = ['Artist5']
-#     song6 = Song()
-#     song6.title = 'Song6'
-#     song6.artists = ['Artist6']
-#     song7 = Song()
-#     song7.title = 'Song7'
-#     song7.artists = ['Artist7']
-#
-#     songs = [song1, song2, song3, song4, song5, song6, song7]
-#
-#     playlist = Playlist()
-#     playlist.src_service = 'Source'
-#     playlist.dest_service = 'Destination'
-#     playlist.name = 'Name'
-#     playlist.description = 'This is a sample playlist description.'
-#     playlist.creator = 'Developer'
-#     playlist.songs = songs
-#
-#     playlist_creator_response.playlist = playlist
-#     playlist_creator_response.excluded_songs = [song3, song5]
-#
-#     return render_template('summary.html',
-#                            playlist=playlist_creator_response.playlist,
-#                            excluded_songs=playlist_creator_response.excluded_songs,
-#                            playlist_url=playlist_creator_response.playlist_url)
+@app.route('/development')
+def development():
+    from api.classes import Playlist, PlaylistCreatorResponse, Song
+
+    playlist_creator_response = PlaylistCreatorResponse()
+    playlist_creator_response.playlist_url = 'https://google.com'
+
+    song1 = Song()
+    song1.title = 'Song1'
+    song1.artists = ['Artist1']
+    song2 = Song()
+    song2.title = 'Song2'
+    song2.artists = ['Artist1', 'Artist2']
+    song3 = Song()
+    song3.title = 'Song3'
+    song3.artists = ['Artist1', 'Artist2', 'Artist3']
+    song4 = Song()
+    song4.title = 'Song4'
+    song4.artists = ['Artist1', 'Artist2', 'Artist3', 'Artist4']
+    song5 = Song()
+    song5.title = 'Song5'
+    song5.artists = ['Artist5']
+    song6 = Song()
+    song6.title = 'Song6'
+    song6.artists = ['Artist6']
+    song7 = Song()
+    song7.title = 'Song7'
+    song7.artists = ['Artist7']
+
+    songs = [song1, song2, song3, song4, song5, song6, song7]
+
+    playlist = Playlist()
+    playlist.src_service = 'Source'
+    playlist.dest_service = 'Destination'
+    playlist.name = 'Name'
+    playlist.description = 'This is a sample playlist description.'
+    playlist.creator = 'Developer'
+    playlist.songs = songs
+
+    playlist_creator_response.playlist = playlist
+    playlist_creator_response.excluded_songs = [song3, song5]
+
+    return render_template('summary.html',
+                           playlist=playlist_creator_response.playlist,
+                           excluded_songs=playlist_creator_response.excluded_songs,
+                           playlist_url=playlist_creator_response.playlist_url)
