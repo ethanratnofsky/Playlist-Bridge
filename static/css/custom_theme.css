@@ -91,3 +91,15 @@ body {
         z-index: 200000;
     }
 }
+
+.custom-alert-danger {
+    color: white;
+    background-color: #ee3a3a;
+    border-color: #cd1717;
+    border-width: 2px;
+}
+
+.custom-text-danger {
+    color: #ee3a3a;
+    font-weight: bold;
+}
