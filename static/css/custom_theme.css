@@ -107,5 +107,7 @@ body {
 @media (max-width: 576px) {
     .custom-sm-rotate-r-90 {
         transform: rotate(90deg);
+        -webkit-transform: rotate(90deg);
+        -ms-transform: rotate(90deg);
     }
 }
