@@ -103,3 +103,9 @@ body {
     color: #ee3a3a;
     font-weight: bold;
 }
+
+@media (max-width: 576px) {
+    .custom-sm-rotate-r-90 {
+        transform: rotate(90deg);
+    }
+}
